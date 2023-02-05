@@ -1,0 +1,102 @@
+.image-track {
+    display: flex;
+    gap: 4vmin;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-0%, -50%);
+    user-select: none; /* -- Prevent image highlighting -- */
+}
+
+.image {
+    width: 40vmin;
+    height: 56vmin;
+    object-fit: cover;
+    object-position: 100% center;
+    user-select: none; /* -- Prevent image highlighting -- */
+    cursor: pointer;
+}
+
+.image-track > div > h2 {
+    color: white;
+    text-align: center;
+}
+
+.image-track > div {
+    transition: transform .2s; /* Animation */
+}
+
+.image-track > div:hover {
+    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+/* Image fullscreen animation */
+.full-screen {
+    position: fixed;
+    animation: go-full-screen forwards 500ms ease-in-out;
+    inset: var(--inset);
+    z-index: 100;
+}
+
+.shrink-down {
+    animation: go-full-screen reverse backwards 500ms ease-in-out !important;
+    transition: transform .2s; /* Animation */
+}
+
+@keyframes go-full-screen {
+    from {
+        inset: var(--inset);
+    }
+    to {
+        height: 100%;
+        width: 100%;
+        inset: 0;
+    }
+}
+
+/* Details displaying handling */
+
+.hide-details {
+    display: none;
+}
+
+.details {
+    height: 100%;
+    width: 100%;
+    z-index: 101;
+    color: white;
+    position: fixed;
+    top:0%;
+    background-color: rgba(1, 1, 1, 0.8);
+    text-align: center;
+}
+
+.details > h1 {
+    font-size: 60px;
+    top: 10%;
+    position: relative;
+}
+
+.details > h2 {
+    font-size: 20px;
+    text-align: right;
+    margin-right: 10%;
+    top: 8%;
+    position: relative;
+}
+
+.details > p {
+    font-size: 26px;
+    top: 10%;
+    margin-left: 7%;
+    margin-right: 7%;
+    position: relative;
+}
+
+.details > ul {
+    top: 10%;
+    position: relative;
+    text-align: left;
+    display: inline-block;
+}

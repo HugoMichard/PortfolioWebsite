@@ -1,0 +1,78 @@
+
+.hidden-drag-tutorial {
+    display: none;
+  }
+  
+  #drag-tutorial {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    width: 150px;
+    height: 100px;
+    font-size: 25px;
+    animation: blinker 2s linear infinite;
+    z-index: 10;
+  }
+  
+  #drag-tutorial > div {
+    animation: move-left-move-right 4s ease infinite;
+  }
+  
+  #drag-tutorial > div > p {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    color: white;
+    font-family: bebasneue;
+    user-select: none;
+  }
+  
+  #drag-tutorial > div > img {
+    width: 50px;
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    user-select: none;
+    animation: zoom-in-zoom-out 4s ease infinite;
+  }
+  
+  @font-face {
+      font-family: 'bebasneue';
+      src: url('fonts/bebas/BebasNeue-Regular.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+  }  
+  
+  
+  @keyframes zoom-in-zoom-out {
+    20% {
+      transform: scale(0.5);
+    }
+    70% {
+      transform: scale(0.5);
+    }
+    90% {
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes move-left-move-right {
+    20% {
+      transform: translate(0%, 0%);
+    }
+    80% {
+      transform: translate(-50%, 0%);
+    }
+    90% {
+      transform: translate(-50%, 0%);
+    }
+    100% {
+      transform: translate(0%, 0%);
+    }
+  }
+  
+  
+  @keyframes blinker {
+  50% {
+      opacity: 0.3;
+  }
+  
+  }
