@@ -10,7 +10,7 @@ body {
     font-family: "Rubik", sans-serif;
 }
 
-.track-container {
+.track-container, .contact-container {
     background-position: center 0%;
     background-size: cover;
     height: 100%;
@@ -20,12 +20,16 @@ body {
     transition: transform 500ms cubic-bezier(.13,.53,.38,.97);
 }
 
-body[data-nav="true"] > .track-container {
+body[data-nav="true"] > .easytransitions > #track-section > .track-container, body[data-nav="true"] > .easytransitions > #contact-section > .contact-container {
     transform: translateY(40%);
 }
 
 .hidden-track {
     display: none;
+}
+
+.hidden {
+    display: none
 }
 
 nav {

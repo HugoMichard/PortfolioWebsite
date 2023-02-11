@@ -7,6 +7,9 @@ const categoryTitles = document.getElementsByClassName('category')
 const marginTop = 200
 const marginLeft = 200
 
+/** 
+ * Display and hide the dragging tutorial
+ */
 const displayDragTutorial = () => {
   if(trackRecorder.dataset.hasUserDragged == "false" && document.getElementById("drag-tutorial").classList.contains("hidden-drag-tutorial")) {
     document.getElementById("drag-tutorial").classList.remove("hidden-drag-tutorial")
@@ -23,7 +26,11 @@ const resetDragTutorialTimeout = () => {
   displayTutorialTimeout = setTimeout(displayDragTutorial, 5000)
 }
 
+/**
+ * Toggle the nav menu
+ */
 const toggleNav = () => {
+  console.log(document.body.dataset.nav)
   document.body.dataset.nav =
     document.body.dataset.nav === 'true' ? 'false' : 'true'
   if(document.body.dataset.nav === "true") {
@@ -38,7 +45,7 @@ const toggleNav = () => {
 
 const goToNav = n => {
   toggleNav()
-  if (n == currPage) {
+  if (n == currPage || n == 'contact' || currPage == 'contact') {
     return
   }
   swapOutPageTitle(currPage, true)
@@ -47,6 +54,11 @@ const goToNav = n => {
   }, 600)
 }
 
+/**
+ * Swap in and out the page title (during scrolling animation)
+ * @param {*} page 
+ * @param {*} withMovement 
+ */
 function swapOutPageTitle (page, withMovement) {
   const categoryPreviouslyDisplayed = document
     .querySelector('#' + page)
@@ -67,6 +79,9 @@ function swapInPageTitle (page, withMovement) {
   categoryToDisplay.style.marginLeft = '0vh'
 }
 
+/**
+ * Scrolling animation
+ */
 function hideSecondaryTracks () {
   for (let p of pages) {
     const d = document.getElementById(p)
