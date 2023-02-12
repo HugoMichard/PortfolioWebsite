@@ -11,7 +11,7 @@
     <button id="nav-toggle" type="button" onclick="toggleNav()">
         <h2 class="rubik-font">Menu</h2>
     </button>
-    
+
     <nav>
         <div id="nav-links">
             <a class="nav-link" onclick="goToNav('home')" draggable="false">
@@ -32,6 +32,8 @@
             </a>
         </div>
     </nav>
+
+    <!-- Enable transitions between sections -->
     <div class='easytransitions'>
         <div class='easytransitions_transition'>
             <div class='div easytransitions_transition__part-1 none'></div>
@@ -43,18 +45,23 @@
             <div class='div easytransitions_transition__part-7 none'></div>
             <div class='div easytransitions_transition__part-8 none'></div>
         </div>
+
+        <!-- Track section for experience and education -->
         <section id="track-section" class='active_slide' data-transition='split_diamond'>
+
+            <!-- Experience -->
             <div id="work" class="track-container">
-                <!-- Experience -->
                 <h1 class="category" draggable="false">Professional Experience</h1>
                 <div class="image-track"></div>
             </div>
-        
+
+            <!-- Education -->
             <div id="education" class="track-container">
-                <!-- Experience -->
                 <h1 class="category" draggable="False">Studies</h1>
                 <div class="image-track"></div>
             </div>
+
+            <!-- Drag Tutorial -->
             <div id="drag-tutorial" class="hidden-drag-tutorial">
                 <div>
                     <img src="images/general/hand.png" draggable="false">
@@ -62,6 +69,8 @@
                 </div>
             </div>
         </section>
+
+        <!-- Contact section -->
         <section id="contact-section" data-transition='split_diamond'>
             <div class="contact-container">
                 <div class="contact-box">
@@ -78,9 +87,6 @@
             </div>
         </section>
     </div>
-
-
-
 
     <div id="track-recorder" data-mouse-down-at="0" data-prev-percentage="0" data-has-user-dragged="false"></div>
     <!-- Javascript -->

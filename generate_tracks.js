@@ -102,7 +102,7 @@ const data = {
             "time": "August 2017 - December 2017",
             "description": "I spent 6 months as an exchange student in South Korea studying computer science in INHA",
             "achievements": ["Majored in Software Development", "Specialized in Database Design"],
-            "skills": ["Software Development", "SQL", "Python", "Java", "SQL"]
+            "skills": ["Software Development", "SQL", "Python", "Java"]
         },
         {
             "img": "https://source.unsplash.com/featured/300x210",
