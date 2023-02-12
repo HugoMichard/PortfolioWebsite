@@ -2,7 +2,6 @@
 
 var slide_time = 1200; // The time it takes to complete an entire transition
 var change_point = slide_time / 2; // Calculates when the slide should change
-var slide_amount = $(".easytransitions section").length; // How many slides
 var current_slide = "track"; // Starting slide
 var on = 1;
 
@@ -45,12 +44,11 @@ for(const nav of document.getElementsByClassName("nav-link")) {
 }
 
 // Set transition type
-
 function set_transition(transition_type) {
-  $(".easytransitions_transition div").each(function () {
-    $(this).removeClass(this.className.split(" ").pop());
-    setTimeout(function () {
-      $(".easytransitions_transition div").addClass(transition_type);
-    }, 100);
-  });
+    for(const d of document.getElementsByClassName("easytransitions_transition")[0].children) {
+        d.classList.remove(d.classList.value.split(" ").pop());
+        setTimeout(function () {
+            d.classList.add(transition_type)
+        }, 100);
+    }
 }
