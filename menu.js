@@ -30,7 +30,6 @@ const resetDragTutorialTimeout = () => {
  * Toggle the nav menu
  */
 const toggleNav = () => {
-  console.log(document.body.dataset.nav)
   document.body.dataset.nav =
     document.body.dataset.nav === 'true' ? 'false' : 'true'
   if(document.body.dataset.nav === "true") {

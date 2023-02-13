@@ -7,6 +7,8 @@ var on = 1;
 
 const contactSection = document.getElementById("contact-section")
 
+const bodyHeight = document.getElementById("body").offsetHeight
+
 function runTransition(section) {
     setTimeout(function() {
         if (on == 1) {
@@ -25,7 +27,7 @@ function runTransition(section) {
     }, 500)
 }
 
-const sayCoucou = (e) => {
+const navigate = (e) => {
     const navDestination = e.target.parentNode.text.trim()
     if (navDestination === "Contact") {
         runTransition(document.getElementById("contact-section"))
@@ -40,7 +42,7 @@ const sayCoucou = (e) => {
 
 // Add click listeners on all nav items
 for(const nav of document.getElementsByClassName("nav-link")) {
-    nav.addEventListener("click", sayCoucou)
+    nav.addEventListener("click", navigate)
 }
 
 // Set transition type
