@@ -9,6 +9,14 @@ const contactSection = document.getElementById("contact-section")
 
 const bodyHeight = document.getElementById("body").offsetHeight
 
+function getTransitionData(transition_type) {
+    const bodyHeight = document.getElementById("body").offsetHeight
+    const animations = {
+        split_diamond: {animation: [{transform: 'rotate(45deg) scale(0)'}, {transform: `rotate(45deg) scale(${(bodyHeight / 100) - 1})`}, {transform: 'rotate(45deg) scale(0)'}], duration: 1000}
+    }
+    return animations[transition_type]
+}
+
 function runTransition(section) {
     setTimeout(function() {
         if (on == 1) {
@@ -47,10 +55,12 @@ for(const nav of document.getElementsByClassName("nav-link")) {
 
 // Set transition type
 function set_transition(transition_type) {
+    const animationData = getTransitionData(transition_type)
     for(const d of document.getElementsByClassName("easytransitions_transition")[0].children) {
         d.classList.remove(d.classList.value.split(" ").pop());
         setTimeout(function () {
             d.classList.add(transition_type)
+            d.animate(animationData["animation"], {duration: animationData["duration"], iterations:1})
         }, 100);
     }
 }

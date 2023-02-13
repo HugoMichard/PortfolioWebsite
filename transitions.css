@@ -7,8 +7,6 @@ body .easytransitions_transition div {
   z-index: 100000;
 }
 body .easytransitions_transition .split_diagonal, body .easytransitions_transition .split_diagonal_alt, body .easytransitions_transition .split_diamond {
-  -webkit-animation: diamond 1.2s;
-          animation: diamond 1.2s;
   transform: scale(0) rotate(45deg);
 }
 body .easytransitions_transition .split_horizontal, body .easytransitions_transition .wipe_top, body .easytransitions_transition .wipe_bottom {
