@@ -24,7 +24,7 @@ function runTransition(section) {
     setTimeout(function() {
         if (on == 1) {
             on = 0;
-            set_transition("split_diamond");
+            set_transition(section.getAttribute("data-transition"));
             setTimeout(function () {
                 document.getElementsByClassName("active_slide")[0].classList.add("hidden")
                 document.getElementsByClassName("active_slide")[0].classList.remove("active_slide")
@@ -40,8 +40,7 @@ function runTransition(section) {
 
 const navigate = (e) => {
     const navDestination = e.target.parentNode.text.trim()
-    console.log(navDestination.toLowerCase())
-    console.log(current_slide)
+
     if (navDestination.toLowerCase() === current_slide) return
     if ((navDestination === "Work" || navDestination === "Education") && current_slide === "track") return
 

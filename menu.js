@@ -44,9 +44,8 @@ const toggleNav = () => {
 
 const goToNav = n => {
   toggleNav()
-  if (n == currPage || n == 'contact' || currPage == 'contact' || n == 'home' || currPage == 'home') {
-    return
-  }
+  // Stop here to avoid swapping animation if pages are not track pages
+  if (n == currPage || !pages.includes(n) || !pages.includes(currPage)) return
   swapOutPageTitle(currPage, true)
   setTimeout(function () {
     scrollAnimation(n)
