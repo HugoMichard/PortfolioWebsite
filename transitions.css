@@ -85,28 +85,6 @@ body .easytransitions_transition__part-8 {
 body .easytransitions_transition__part-8.split_horizontal, body .easytransitions_transition__part-8.wipe_top {
   display: block;
 }
-@-webkit-keyframes diamond {
-  0% {
-    transform: rotate(45deg) scale(0);
-  }
-  50% {
-    transform: rotate(45deg) scale(10);
-  }
-  100% {
-    transform: rotate(45deg) scale(0);
-  }
-}
-@keyframes diamond {
-  0% {
-    transform: rotate(45deg) scale(0);
-  }
-  50% {
-    transform: rotate(45deg) scale(10);
-  }
-  100% {
-    transform: rotate(45deg) scale(0);
-  }
-}
 @-webkit-keyframes vertical {
   0% {
     transform: scaleX(0);

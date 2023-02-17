@@ -44,7 +44,7 @@ const toggleNav = () => {
 
 const goToNav = n => {
   toggleNav()
-  if (n == currPage || n == 'contact' || currPage == 'contact') {
+  if (n == currPage || n == 'contact' || currPage == 'contact' || n == 'home' || currPage == 'home') {
     return
   }
   swapOutPageTitle(currPage, true)

@@ -2,17 +2,20 @@
 
 var slide_time = 1200; // The time it takes to complete an entire transition
 var change_point = slide_time / 2; // Calculates when the slide should change
-var current_slide = "track"; // Starting slide
+var current_slide = "home"; // Starting slide
 var on = 1;
 
 const contactSection = document.getElementById("contact-section")
+const trackSection = document.getElementById("track-section")
+const homeSection = document.getElementById("home-section")
 
 const bodyHeight = document.getElementById("body").offsetHeight
 
 function getTransitionData(transition_type) {
     const bodyHeight = document.getElementById("body").offsetHeight
     const animations = {
-        split_diamond: {animation: [{transform: 'rotate(45deg) scale(0)'}, {transform: `rotate(45deg) scale(${(bodyHeight / 100) - 1})`}, {transform: 'rotate(45deg) scale(0)'}], duration: 1000}
+        split_diamond: {animation: [{transform: 'rotate(45deg) scale(0)'}, {transform: `rotate(45deg) scale(${(bodyHeight / 100) - 1})`}, {transform: 'rotate(45deg) scale(0)'}], duration: 1000},
+        split_diagonal: {animation: [{transform: 'scaleX(0)'}, {transform: `scaleX(${(bodyHeight / 100) - 1})`}, {transform: 'scaleX(0)'}], duration: 1000}
     }
     return animations[transition_type]
 }
@@ -37,15 +40,20 @@ function runTransition(section) {
 
 const navigate = (e) => {
     const navDestination = e.target.parentNode.text.trim()
-    if (navDestination === "Contact") {
-        runTransition(document.getElementById("contact-section"))
-        current_slide = "contact"
-    } else {
-        if (current_slide == "contact" && navDestination !== "Contact") {
-            runTransition(document.getElementById("track-section"))
-            current_slide = "track"
-        }
-    }
+    console.log(navDestination.toLowerCase())
+    console.log(current_slide)
+    if (navDestination.toLowerCase() === current_slide) return
+    if ((navDestination === "Work" || navDestination === "Education") && current_slide === "track") return
+
+    const sectionDestination = navDestination === "Home" ? homeSection 
+        : navDestination === "Contact" ? contactSection
+        : trackSection
+
+    runTransition(sectionDestination)
+
+    current_slide = navDestination === "Home" ? "home" 
+        : navDestination === "Contact" ? "contact"
+        : "track"
 }
 
 // Add click listeners on all nav items
