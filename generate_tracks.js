@@ -1,7 +1,7 @@
 const data = {
     "work": [
         {
-            "img": "https://source.unsplash.com/featured/300x201",
+            "img": "images/experience/ceabomb.jpg",
             "short_title": "CEA",
             "title": "Software Engineer Intern at the CEA",
             "time": "September 2016 - December 2016",
@@ -14,7 +14,7 @@ const data = {
             "skills": ["Quality Assurance", "Test Automation", "Selenium", "Software Development", "JavaScript"]
         },
         {
-            "img": "https://source.unsplash.com/featured/300x202",
+            "img": "images/experience/memo.jpg",
             "short_title": "MemoRecords",
             "title": "Full-stack Developer Intern at MemoRecords",
             "time": "January 2018 - July 2018",
@@ -27,7 +27,7 @@ const data = {
             "skills": ["Full-Stack Development", "PHP", "Laravel", "JavaScript", "MySQL"]
         },
         {
-            "img": "https://source.unsplash.com/featured/300x203",
+            "img": "images/experience/telecom.png",
             "short_title": "Telecom SudParis",
             "title": "Deep Learning Research Intern at Telecom SudParis",
             "time": "March 2019 - April 2019",
@@ -39,7 +39,7 @@ const data = {
             "skills": ["Deep Learning", "Computer Vision", "Keras / Tensorflow", "Recurrent Neural Networks", "Convolutional Neural Networks"]
         },
         {
-            "img": "https://source.unsplash.com/featured/300x204",
+            "img": "images/experience/recruit.jpg",
             "short_title": "Recruit Communications",
             "title": "Machine Learning Engineer Intern at Recruit Communications",
             "time": "May 2019 - September 2019",
@@ -51,7 +51,7 @@ const data = {
             "skills": ["Machine Learning", "Automated Machine Learning (AutoML)", "Scala", "Python"]
         },
         {
-            "img": "https://source.unsplash.com/featured/300x205",
+            "img": "images/experience/klee.jpg",
             "short_title": "KLEE Group",
             "title": "Software Engineer at KLEE Group",
             "time": "January 2020 - August 2020",
@@ -63,7 +63,7 @@ const data = {
             "skills": ["Software Development", "React.js", "Java", "PostgreSQL"]
         },
         {
-            "img": "https://source.unsplash.com/featured/300x206",
+            "img": "images/experience/cea2.jpeg",
             "short_title": "CEA",
             "title": "Computer Vision Research Engineer at CEA",
             "time": "September 2020 - November 2021",
@@ -76,7 +76,7 @@ const data = {
             "skills": ["Deep Learning", "Computer Vision", "Tensorflow", "PyTorch", "Python"]
         },
         {
-            "img": "https://source.unsplash.com/featured/300x207",
+            "img": "images/experience/harfanglab.jpg",
             "short_title": "HarfangLab",
             "title": "Artificial Intelligence Engineer at HarfangLab",
             "time": "November 2021 - Present",
@@ -87,7 +87,7 @@ const data = {
     ],
     "education": [
         {
-            "img": "https://source.unsplash.com/featured/300x208",
+            "img": "images/education/isep.jpg",
             "short_title": "ISEP",
             "title": "Engineering Diploma in Computer Science",
             "time": "September 2015 - September 2018",
@@ -96,7 +96,7 @@ const data = {
             "skills": ["Software Development", "Web Development", "Javascript", "PHP", "Python", "Java", "SQL"]
         },
         {
-            "img": "https://source.unsplash.com/featured/300x209",
+            "img": "images/education/inha.jpg",
             "short_title": "INHA",
             "title": "Exchange student in Computer Science at INHA University",
             "time": "August 2017 - December 2017",
@@ -105,9 +105,9 @@ const data = {
             "skills": ["Software Development", "SQL", "Python", "Java"]
         },
         {
-            "img": "https://source.unsplash.com/featured/300x210",
+            "img": "images/education/tried.jpg",
             "short_title": "TRIED",
-            "title": "Exchange student in Computer Science at INHA University",
+            "title": "Specialized Master Degree in Machine Learning and Deep Learning at Paris-Saclay University",
             "time": "September 2018 - September 2019",
             "description": "TRIED (Information Processing and Data Exploitation) is a machine learning specialized master. I studied in this master with the research programme",
             "achievements": ["Majored in Data Science", "Specialized in Deep Learning", "Worked as a research intern in a lab"],
