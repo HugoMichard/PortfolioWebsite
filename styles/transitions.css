@@ -69,8 +69,6 @@ body .easytransitions_transition__part-7 {
   width: 100% !important;
   display: none;
   bottom: -100px;
-  -webkit-animation: horizontal 1s forwards;
-          animation: horizontal 1s forwards;
 }
 body .easytransitions_transition__part-7.split_horizontal, body .easytransitions_transition__part-7.wipe_bottom {
   display: block;
@@ -79,8 +77,6 @@ body .easytransitions_transition__part-8 {
   width: 100% !important;
   display: none;
   top: -100px;
-  -webkit-animation: horizontal 1s forwards;
-          animation: horizontal 1s forwards;
 }
 body .easytransitions_transition__part-8.split_horizontal, body .easytransitions_transition__part-8.wipe_top {
   display: block;

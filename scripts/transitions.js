@@ -15,16 +15,24 @@ function getTransitionData(transition_type) {
     const bodyHeight = document.getElementById("body").offsetHeight
     const animations = {
         split_diamond: {animation: [{transform: 'rotate(45deg) scale(0)'}, {transform: `rotate(45deg) scale(${(bodyHeight / 100) - 1})`}, {transform: 'rotate(45deg) scale(0)'}], duration: 1000},
-        split_diagonal: {animation: [{transform: 'scaleX(0)'}, {transform: `scaleX(${(bodyHeight / 100) - 1})`}, {transform: 'scaleX(0)'}], duration: 1000}
+        split_diagonal: {animation: [{transform: 'rotate(45deg) scale(0)'}, {transform: `rotate(45deg) scale(${(bodyHeight / 100)})`}, {transform: 'rotate(45deg) scale(0)'}], duration: 1000},
+        split_horizontal: {animation: [{transform: 'scaleY(0)'}, {transform: `scaleY(${(bodyHeight / 100) - 1})`}, {transform: 'scaleY(0)'}], duration: 800},
     }
     return animations[transition_type]
 }
 
-function runTransition(section) {
+function getTransitionType(current, destination) {
+    if (current == "home") return "split_diagonal"
+    if (destination == "home") return "split_horizontal"
+    if (destination == "contact" || current == "contact") return "split_diamond"
+    return "none"
+}
+
+function runTransition(section, transition_type) {
     setTimeout(function() {
         if (on == 1) {
             on = 0;
-            set_transition(section.getAttribute("data-transition"));
+            set_transition(transition_type);
             setTimeout(function () {
                 document.getElementsByClassName("active_slide")[0].classList.add("hidden")
                 document.getElementsByClassName("active_slide")[0].classList.remove("active_slide")
@@ -47,8 +55,8 @@ const navigate = (e) => {
     const sectionDestination = navDestination === "Home" ? homeSection 
         : navDestination === "Contact" ? contactSection
         : trackSection
-
-    runTransition(sectionDestination)
+    
+    runTransition(sectionDestination, getTransitionType(current_slide, navDestination.toLowerCase()))
 
     current_slide = navDestination === "Home" ? "home" 
         : navDestination === "Contact" ? "contact"
@@ -63,11 +71,14 @@ for(const nav of document.getElementsByClassName("nav-link")) {
 // Set transition type
 function set_transition(transition_type) {
     const animationData = getTransitionData(transition_type)
-    for(const d of document.getElementsByClassName("easytransitions_transition")[0].children) {
-        d.classList.remove(d.classList.value.split(" ").pop());
-        setTimeout(function () {
-            d.classList.add(transition_type)
-            d.animate(animationData["animation"], {duration: animationData["duration"], iterations:1})
-        }, 100);
+    for(const numbered_d of document.getElementsByClassName("easytransitions_transition")) {
+        console.log(numbered_d)
+        for(const d of numbered_d.children) {
+            d.classList.remove(d.classList.value.split(" ").pop());
+            setTimeout(function () {
+                d.classList.add(transition_type)
+                d.animate(animationData["animation"], {duration: animationData["duration"], iterations:1})
+            }, 100);
+        }
     }
 }

@@ -9,7 +9,6 @@
     right: 50px;
     width: 150px;
     height: 100px;
-    font-size: 25px;
     animation: blinker 2s linear infinite;
     z-index: 10;
   }
