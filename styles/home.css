@@ -1,3 +1,22 @@
 .home-container {
   background-color: black;
+  color: white;
+}
+
+.welcome-text {
+  position: relative;
+  height: 50%;
+}
+
+.welcome-text > div {
+  text-align: left;
+  position: absolute;
+  top: 40%;
+  margin-left: 100px;
+}
+
+.welcome-text > div > h1 {
+  line-height: 100px;
+  font-size: 4rem;
+  margin-top: 0;
 }

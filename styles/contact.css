@@ -19,7 +19,7 @@
 }
 
 .left{
-	background: url("images/general/contact-bg.jpg") no-repeat center;
+	background: url("../images/general/contact-bg.jpg") no-repeat center;
 	background-size: cover;
 	height: 100%;
 }
