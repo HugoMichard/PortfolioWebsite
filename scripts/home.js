@@ -23,3 +23,6 @@ function addShootingStar() {
 }
 
 setTimeout(addShootingStar, getRandomFloatBetweenMinAndMax(5000, 10000))
+
+/* Download Resume */
+document.getElementById('download-button').addEventListener("click", function() {document.getElementById('download').click()})
