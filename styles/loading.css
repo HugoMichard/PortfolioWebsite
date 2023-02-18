@@ -1,0 +1,15 @@
+#overlay {
+    transition: opacity 1s;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: black;
+    z-index: 1000;
+    color: white;
+}
+
+#loading-animation {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}

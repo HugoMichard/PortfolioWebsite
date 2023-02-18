@@ -1,3 +1,4 @@
+// Creating shooting stars
 const shootingStars = document.getElementsByClassName("shooting-stars")[0]
 
 function getRandomFloatBetweenMinAndMax(min, max) {
