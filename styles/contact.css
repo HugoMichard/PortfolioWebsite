@@ -18,6 +18,10 @@
     border-radius: 25px;
 }
 
+.contact-form {
+	text-align: left;
+}
+
 .left{
 	background: url("../images/general/contact-bg.jpg") no-repeat center;
 	background-size: cover;
@@ -53,8 +57,10 @@
 	background-color: rgba(230, 230, 230, 0.6);
 	padding: 0.5rem 1rem;
 	font-size: 1.1rem;
+}
+
+.margin-field {
 	margin-bottom: 22px;
-	transition: .3s;
 }
 
 .field:hover{
@@ -74,7 +80,6 @@ textarea{
 	border: none;
 	outline: none;
 	cursor: pointer;
-	transition: .3s;
 }
 
 .contact-btn:hover{
@@ -84,6 +89,10 @@ textarea{
 .field:focus{
     border: 2px solid rgba(30,85,250,0.47);
     background-color: #fff;
+}
+
+.error-message {
+	color: red;
 }
 
 @media screen and (max-width: 880px){
