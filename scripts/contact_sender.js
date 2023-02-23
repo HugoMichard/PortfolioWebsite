@@ -40,9 +40,9 @@ function sendForm() {
         }
     }
 
-    //if (data.email && data.message && data.phone && data.name) {
+    if (data.email && data.message && data.phone && data.name) {
         sendToHeadless(data)
-    //}
+    }
 }
 
 document.getElementById("button-submit-form").addEventListener("click", sendForm)
