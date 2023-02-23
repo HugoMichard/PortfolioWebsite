@@ -7,6 +7,16 @@ function sendToHeadless(data) {
         }
     });
     console.log("Data sent");
+    document.getElementById('contact-box').classList.add('is-sent');
+    setTimeout(function() {
+        document.getElementById("form-name").value = ""
+        document.getElementById("form-email").value = ""
+        document.getElementById("form-phone").value = ""
+        document.getElementById("form-message").value = ""    
+    }, 900)
+    setTimeout(function(){
+        document.getElementById('contact-box').classList.remove('is-sent');  
+    }, 1800);
 }
 
 
@@ -30,9 +40,9 @@ function sendForm() {
         }
     }
 
-    if (data.email && data.message && data.phone && data.name) {
+    //if (data.email && data.message && data.phone && data.name) {
         sendToHeadless(data)
-    }
+    //}
 }
 
 document.getElementById("button-submit-form").addEventListener("click", sendForm)
