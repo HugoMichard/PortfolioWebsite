@@ -25,11 +25,11 @@ body[data-nav="true"] > .easytransitions > #track-section > .track-container, bo
 }
 
 .hidden-track {
-    display: none;
+    display: none !important;
 }
 
 .hidden {
-    display: none
+    display: none !important
 }
 
 nav {

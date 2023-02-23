@@ -93,6 +93,8 @@ textarea{
 
 .error-message {
 	color: red;
+	display: inline-block;
+	margin-bottom: 10px;
 }
 
 @media screen and (max-width: 880px){
