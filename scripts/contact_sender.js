@@ -1,3 +1,22 @@
+const thanksBox = document.getElementById("thanks-box")
+const contactBox = document.getElementById("contact-box")
+
+function resetForm() {
+    document.getElementById("form-name").value = ""
+    document.getElementById("form-email").value = ""
+    document.getElementById("form-phone").value = ""
+    document.getElementById("form-message").value = ""  
+}
+
+function swapBoxDisplayed() {
+    const currentBox = thanksBox.classList.contains("hidden") ? contactBox : thanksBox
+    const newBox = thanksBox.classList.contains("hidden") ? thanksBox : contactBox
+    currentBox.classList.add('hidden')
+    newBox.classList.add('fade-in-box')
+    newBox.classList.remove('hidden')
+    setTimeout(function() {newBox.classList.remove('fade-in-box')}, 2000)
+}
+
 function sendToHeadless(data) {
     fetch("https://app.headlessforms.cloud/api/v1/form-submission/t8QbsCVx9i", {
         method: "POST",
@@ -7,15 +26,11 @@ function sendToHeadless(data) {
         }
     });
     console.log("Data sent");
-    document.getElementById('contact-box').classList.add('is-sent');
-    setTimeout(function() {
-        document.getElementById("form-name").value = ""
-        document.getElementById("form-email").value = ""
-        document.getElementById("form-phone").value = ""
-        document.getElementById("form-message").value = ""    
-    }, 900)
+    contactBox.classList.add('is-sent');
+    setTimeout(resetForm, 900)
+    setTimeout(swapBoxDisplayed, 900)
     setTimeout(function(){
-        document.getElementById('contact-box').classList.remove('is-sent');  
+        contactBox.classList.remove('is-sent');  
     }, 1800);
 }
 
@@ -45,4 +60,14 @@ function sendForm() {
     }
 }
 
+function newForm() {
+    thanksBox.classList.add('is-sent');
+    setTimeout(swapBoxDisplayed, 900)
+    setTimeout(function(){
+        thanksBox.classList.remove('is-sent');  
+    }, 1800);
+
+}
+
 document.getElementById("button-submit-form").addEventListener("click", sendForm)
+document.getElementById("button-new-form").addEventListener("click", newForm)
