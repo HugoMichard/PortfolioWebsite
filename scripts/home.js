@@ -19,10 +19,10 @@ function addShootingStar() {
     shootingStar.style.setProperty("--fall-delay", "0s")
     shootingStars.appendChild(shootingStar);
     setTimeout(removeShootingStar, fallDuration * 1000, [shootingStar]);
-    setTimeout(addShootingStar, getRandomFloatBetweenMinAndMax(5000, 30000));
+    setTimeout(addShootingStar, getRandomFloatBetweenMinAndMax(5000, 15000));
 }
 
-setTimeout(addShootingStar, getRandomFloatBetweenMinAndMax(5000, 10000))
+setTimeout(addShootingStar, getRandomFloatBetweenMinAndMax(3000, 5000))
 
 /* Download Resume */
 document.getElementById('download-button').addEventListener("click", function() {document.getElementById('download').click()})

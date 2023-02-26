@@ -1,0 +1,60 @@
+.skills-container {
+    background-color: black;
+	z-index: 2;
+}
+
+.galaxy {
+    float: left;
+    width: 50%;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+}
+
+.galaxy h2 {
+    color: white;
+    position: absolute;
+    top: 25%;
+    text-align: center;
+    width: 100%;
+}
+
+.planet {
+    --size: 10px;
+    --top: 50%;
+    --left: 50%;
+    --blur: 5px;
+    --min-blur: 0px;
+    --blur-speed: 4s;
+    background-color: white;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    position: absolute;
+    top: var(--top);
+    left: var(--left);
+    animation: blur var(--blur-speed) ease 0s infinite;
+    -webkit-animation: blur var(--blur-speed) ease 0s infinite;
+    -moz-animation: blur var(--blur-speed) ease 0s infinite;
+}
+
+@keyframes blur {
+    0% {
+        -webkit-filter: blur(var(--min-blur));
+        -moz-filter: blur(var(--min-blur));
+        -o-filter: blur(var(--min-blur));
+        -ms-filter: blur(var(--min-blur));
+    }
+    50% {
+        -webkit-filter: blur(var(--blur));
+        -moz-filter: blur(var(--blur));
+        -o-filter: blur(var(--blur));
+        -ms-filter: blur(var(--blur));
+    }
+    100% {
+      -webkit-filter: blur(var(--min-blur));
+      -moz-filter: blur(var(--min-blur));
+      -o-filter: blur(var(--min-blur));
+      -ms-filter: blur(var(--min-blur));
+    }
+  }

@@ -10,7 +10,7 @@ body {
     font-family: "Rubik", sans-serif;
 }
 
-.track-container, .contact-container, .home-container {
+.track-container, .contact-container, .home-container, .skills-container {
     background-position: center 0%;
     background-size: cover;
     height: 100%;
@@ -46,7 +46,7 @@ nav {
     display: flex;
     gap: clamp(1rem, 2vw, 2rem);
     margin-top: clamp(9rem, 2vw, 3rem);
-    padding: 0rem clamp(1rem, 2vw, 2rem);
+    padding: 0rem clamp(3rem, 2vw, 2rem);
     transform: translateY(-70%) scale(0.9);
     transition: transform 500ms cubic-bezier(.13,.53,.38,.97); 
 }
@@ -67,7 +67,7 @@ body[data-nav="true"] > nav > #nav-links {
 }
 
 #nav-links > .nav-link > .nav-link-image {
-    width: max(20vw, 400px);
+    width: 17vw;
     aspect-ratio: 1.8 / 1;
     border-radius: 0.5rem;
     margin-top: 0.75rem;

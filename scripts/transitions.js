@@ -8,8 +8,7 @@ var on = 1;
 const contactSection = document.getElementById("contact-section")
 const trackSection = document.getElementById("track-section")
 const homeSection = document.getElementById("home-section")
-
-const bodyHeight = document.getElementById("body").offsetHeight
+const skillsSection = document.getElementById("skills-section")
 
 function getTransitionData(transition_type) {
     const bodyHeight = document.getElementById("body").offsetHeight
@@ -17,6 +16,8 @@ function getTransitionData(transition_type) {
         split_diamond: {animation: [{transform: 'rotate(45deg) scale(0)'}, {transform: `rotate(45deg) scale(${(bodyHeight / 100) - 1})`}, {transform: 'rotate(45deg) scale(0)'}], duration: 1000},
         split_diagonal: {animation: [{transform: 'rotate(45deg) scale(0)'}, {transform: `rotate(45deg) scale(${(bodyHeight / 100)})`}, {transform: 'rotate(45deg) scale(0)'}], duration: 1000},
         split_horizontal: {animation: [{transform: 'scaleY(0)'}, {transform: `scaleY(${(bodyHeight / 100) - 1})`}, {transform: 'scaleY(0)'}], duration: 800},
+        wipe_right: {animation: [], duration: 800},
+        wipe_left: {animation: [], duration: 800}
     }
     return animations[transition_type]
 }
@@ -25,6 +26,8 @@ function getTransitionType(current, destination) {
     if (current == "home") return "split_diagonal"
     if (destination == "home") return "split_horizontal"
     if (destination == "contact" || current == "contact") return "split_diamond"
+    if (destination == "skills") return "wipe_right"
+    if (current == "skills") return "wipe_left"
     return "none"
 }
 
@@ -54,12 +57,14 @@ const navigate = (e) => {
 
     const sectionDestination = navDestination === "Home" ? homeSection 
         : navDestination === "Contact" ? contactSection
+        : navDestination === "Skills" ? skillsSection
         : trackSection
     
     runTransition(sectionDestination, getTransitionType(current_slide, navDestination.toLowerCase()))
 
     current_slide = navDestination === "Home" ? "home" 
         : navDestination === "Contact" ? "contact"
+        : navDestination === "Skills" ? "skills"
         : "track"
 }
 
