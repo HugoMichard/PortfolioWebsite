@@ -3,13 +3,6 @@
 	z-index: 2;
 }
 
-.galaxy {
-    float: left;
-    width: 50%;
-    height: 100%;
-    position: relative;
-    cursor: pointer;
-}
 
 .galaxy h2 {
     color: white;
@@ -17,14 +10,6 @@
     top: 15%;
     text-align: center;
     width: 100%;
-}
-
-.solar-system {
-    width: 100%;
-    position: absolute;
-    top: 25%;
-    background-color: white;
-    height:50%
 }
 
 .solar-system .star {
