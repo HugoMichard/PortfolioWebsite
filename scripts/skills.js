@@ -7,11 +7,12 @@ function getRandomIntegerBetweenMinAndMax(min, max) {
 }
 
 
-function generatePlanet(galaxy) {
+function generateRandomPlanet(galaxy) {
     const planet = document.createElement("div")
     planet.classList.add("planet")
+    planet.classList.add("blurry-planet")
     const maxBlur = getRandomFloatBetweenMinAndMax(3, 7);
-    const minBlur = getRandomFloatBetweenMinAndMax(0, blur);
+    const minBlur = getRandomFloatBetweenMinAndMax(0, maxBlur);
     const blurSpeed = getRandomFloatBetweenMinAndMax(10, 30);
     const size = getRandomFloatBetweenMinAndMax(2, 15);
     const positionTop = getRandomFloatBetweenMinAndMax(-15, 15);
@@ -26,12 +27,44 @@ function generatePlanet(galaxy) {
     galaxy.appendChild(planet);
 }
 
+function generateGalaxy(galaxy) {
+    let nb_of_random_planets = getRandomIntegerBetweenMinAndMax(30, 100);
+    for(const i of Array(nb_of_random_planets).keys()) {
+        generateRandomPlanet(galaxy)
+    }
+}
+
+function generateSolarSystem(galaxy) {
+    const solarSystem = document.createElement("div")
+    solarSystem.classList.add("solar-system")
+
+    const planet = document.createElement("div")
+    planet.classList.add("star")
+    planet.classList.add("planet")
+    const maxBlur = getRandomFloatBetweenMinAndMax(3, 7);
+    const minBlur = getRandomFloatBetweenMinAndMax(0, maxBlur);
+    const blurSpeed = getRandomFloatBetweenMinAndMax(10, 30);
+    const size = getRandomFloatBetweenMinAndMax(10, 20);
+    const positionTop = getRandomFloatBetweenMinAndMax(-15, 15);
+    const positionLeft = getRandomFloatBetweenMinAndMax(-15, 15);
+    planet.style.setProperty("--size", size + "%")
+    planet.style.setProperty("--left", 50 + positionLeft + "%")
+    planet.style.setProperty("--top", 50 + positionTop + "%")
+    planet.style.setProperty("--blur", maxBlur + "px")
+    planet.style.setProperty("--min-blur", minBlur + "px")
+    planet.style.setProperty("--blur-speed", blurSpeed + "s")
+    planet.style.setProperty("--background-color", "yellow")
+    solarSystem.appendChild(planet);
+
+    galaxy.appendChild(solarSystem);
+
+}
+
+
 function generateSkillWorld() {
     for(const galaxy of document.getElementsByClassName("galaxy")) {
-        let nb_of_random_planets = getRandomIntegerBetweenMinAndMax(30, 100);
-        for(const i of Array(nb_of_random_planets).keys()) {
-            generatePlanet(galaxy)
-        }
+        //generateGalaxy(galaxy)
+        generateSolarSystem(galaxy)
     }
 }
 
