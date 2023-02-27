@@ -1,5 +1,38 @@
+const skills = {
+    "AI": {
+        "AI Research Engineer": [
+            {"technology": "Tensorflow / Keras", "stars": 0, "projects": [""]},
+            {"technology": "Pytorch", "stars": 0, "projects": [""]},
+            {"technology": "Deep Learning Modelization", "stars": 0, "projects": [""]},
+            {"technology": "Machine Learning Modelization", "stars": 0, "projects": [""]},
+            {"technology": "MLOps", "stars": 0, "projects": [""]}
+        ],
+        "Data Engineer": [
+            {"technology": "Data Manipulation (with Numpy, Pandas, Scikit)", "stars": 0, "projects": [""]},
+            {"technology": "Data Visualization (with Matplotlib, Seaborn, Streamlit)", "stars": 0, "projects": [""]},
+            {"technology": "Data Scrapping", "stars": 0, "projects": [""]}
+        ]
+    },
+    "Software Development": [
+        {
+            "Frontend": [
+                {"technology": "Pure Javascript", "stars": 0, "projects": [""]},
+                {"technology": "React", "stars": 0, "projects": [""]},
+                {"technology": "Vue", "stars": 0, "projects": [""]},
+            ],
+            "Backend": [
+                {"technology": "Node.js / Express.js", "stars": 0, "projects": [""]},
+                {"technology": "Django", "stars": 0, "projects": [""]},
+                {"technology": "Laravel", "stars": 0, "projects": [""]},
+                {"technology": "SQL (with MySQL, PostgreSQL)", "stars": 0, "projects": [""]}
+            ]
+        }
+    ]
+}
+
+
 const planetTypes = ['earth', 'mercury', 'uranus', 'venus', 'mars', 'neptune', 'jupiter']
-const moonFrequency = 100;
+const moonFrequency = 20;
 const ringFrequency = 20;
 
 function getRandomFloatBetweenMinAndMax(min, max) {
@@ -67,7 +100,7 @@ function generateRing(planet) {
     planet.appendChild(ring);
 }
 
-function generatePlanet(solarSystem, distanceToCenter) {
+function generatePlanet(solarSystem, planetData, distanceToCenter) {
     const planetType = planetTypes[getRandomIntegerBetweenMinAndMax(0, planetTypes.length - 1)]
     const planetSize = getRandomFloatBetweenMinAndMax(1, 8);
 
@@ -105,7 +138,7 @@ function generatePlanet(solarSystem, distanceToCenter) {
     dl.classList.add("infos")
 
     const dt = document.createElement("dt")
-    dt.textContent = 'Mercury'
+    dt.textContent = planetData["technology"]
     dl.appendChild(dt);
     const dd = document.createElement("dd")
     const s = document.createElement("span")
@@ -145,15 +178,15 @@ function generateSun(solarSystem) {
     return sunSize / 2
 }
 
-function generateSolarSystem(galaxy) {
+function generateSolarSystem(galaxy, galaxyName, solarSystemName) {
     const solarSystem = document.createElement("div")
     solarSystem.classList.add("solar-system")
     let distanceToCenter = generateSun(solarSystem);
-    distanceToCenter = generatePlanet(solarSystem, distanceToCenter);
-    distanceToCenter = generatePlanet(solarSystem, distanceToCenter);
-    distanceToCenter = generatePlanet(solarSystem, distanceToCenter);
-    distanceToCenter = generatePlanet(solarSystem, distanceToCenter);
-    distanceToCenter = generatePlanet(solarSystem, distanceToCenter);
+
+    for(const planetData of skills[galaxyName][solarSystemName]) {
+        //generateGalaxy(galaxy)
+        distanceToCenter = generatePlanet(solarSystem, planetData, distanceToCenter);
+    }
 
     galaxy.appendChild(solarSystem);
 }
@@ -162,7 +195,7 @@ function generateSolarSystem(galaxy) {
 function generateSkillWorld() {
     for(const galaxy of document.getElementsByClassName("galaxy")) {
         //generateGalaxy(galaxy)
-        generateSolarSystem(galaxy)
+        generateSolarSystem(galaxy, "AI", "AI Research Engineer")
     }
 }
 
