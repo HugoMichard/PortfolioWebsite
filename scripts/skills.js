@@ -1,30 +1,30 @@
 const skills = {
     "AI": {
         "AI Research Engineer": [
-            {"technology": "Tensorflow / Keras", "stars": 0, "projects": [""]},
-            {"technology": "Pytorch", "stars": 0, "projects": [""]},
-            {"technology": "Deep Learning Modelization", "stars": 0, "projects": [""]},
-            {"technology": "Machine Learning Modelization", "stars": 0, "projects": [""]},
-            {"technology": "MLOps", "stars": 0, "projects": [""]}
+            {"technology": "Tensorflow Keras", "stars": 5, "projects": ["coucou", "test"]},
+            {"technology": "Pytorch", "stars": 4, "projects": [""]},
+            {"technology": "Deep Learning Modelization", "stars": 5, "projects": [""]},
+            {"technology": "Machine Learning Modelization", "stars": 4, "projects": [""]},
+            {"technology": "MLOps", "stars": 4, "projects": [""]}
         ],
         "Data Engineer": [
-            {"technology": "Data Manipulation (with Numpy, Pandas, Scikit)", "stars": 0, "projects": [""]},
-            {"technology": "Data Visualization (with Matplotlib, Seaborn, Streamlit)", "stars": 0, "projects": [""]},
-            {"technology": "Data Scrapping", "stars": 0, "projects": [""]}
+            {"technology": "Data Manipulation (with Numpy, Pandas, Scikit)", "stars": 4, "projects": [""]},
+            {"technology": "Data Visualization (with Matplotlib, Seaborn, Streamlit)", "stars": 4, "projects": [""]},
+            {"technology": "Data Scrapping", "stars": 4, "projects": [""]}
         ]
     },
     "Software Development": [
         {
             "Frontend": [
-                {"technology": "Pure Javascript", "stars": 0, "projects": [""]},
-                {"technology": "React", "stars": 0, "projects": [""]},
-                {"technology": "Vue", "stars": 0, "projects": [""]},
+                {"technology": "Pure Javascript", "stars": 4, "projects": [""]},
+                {"technology": "React", "stars": 4, "projects": [""]},
+                {"technology": "Vue", "stars": 4, "projects": [""]},
             ],
             "Backend": [
-                {"technology": "Node.js / Express.js", "stars": 0, "projects": [""]},
-                {"technology": "Django", "stars": 0, "projects": [""]},
-                {"technology": "Laravel", "stars": 0, "projects": [""]},
-                {"technology": "SQL (with MySQL, PostgreSQL)", "stars": 0, "projects": [""]}
+                {"technology": "Node.js / Express.js", "stars": 4, "projects": [""]},
+                {"technology": "Django", "stars": 4, "projects": [""]},
+                {"technology": "Laravel", "stars": 4, "projects": [""]},
+                {"technology": "SQL (with MySQL, PostgreSQL)", "stars": 4, "projects": [""]}
             ]
         }
     ]
@@ -129,6 +129,8 @@ function generatePlanet(solarSystem, planetData, distanceToCenter) {
 
     const planet = document.createElement("div")
     planet.classList.add("planet")
+    planet.classList.add("informations-on-planet")
+    planet.style.setProperty("--nb-projects", `"${planetData["projects"].length}"`)
     if(hasRing) {
         generateRing(planet)
         totalDistanceToCenter += 2
@@ -142,6 +144,8 @@ function generatePlanet(solarSystem, planetData, distanceToCenter) {
     dl.appendChild(dt);
     const dd = document.createElement("dd")
     const s = document.createElement("span")
+
+    dd.classList.add(`stars-${planetData['stars']}-image`)
 
     dd.appendChild(s);
     dl.appendChild(dd);
