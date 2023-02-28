@@ -599,6 +599,7 @@ shadow-saturn-ring{ 0%   { box-shadow: inset -16px  0      4px   rgba(20, 40, 50
 dl.infos {
   position: absolute;
   display: block;
+  pointer-events: none;
   opacity: 0;
   width: 100%;
   height: 100%;
@@ -624,6 +625,7 @@ dl.infos:before {
 
 dl.infos dt {
   position: absolute;
+  pointer-events: none;
   left: 50px;
   margin-bottom: 26px;
   width: 200px;
@@ -765,3 +767,13 @@ padding: 15px 15px; }
 
 .data-open #data, .data-close #data {
 left: 0px; }
+
+
+/* Navigation Animations */
+.zoomed-in-planet {
+  transform: scale(10) translateY(1em) !important;
+}
+
+.lifted-solar-system {
+  transform: translateY(-15em) rotateX(75deg) !important;
+}

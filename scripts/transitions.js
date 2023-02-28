@@ -77,7 +77,6 @@ for(const nav of document.getElementsByClassName("nav-link")) {
 function set_transition(transition_type) {
     const animationData = getTransitionData(transition_type)
     for(const numbered_d of document.getElementsByClassName("easytransitions_transition")) {
-        console.log(numbered_d)
         for(const d of numbered_d.children) {
             d.classList.remove(d.classList.value.split(" ").pop());
             setTimeout(function () {

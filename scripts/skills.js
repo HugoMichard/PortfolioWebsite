@@ -1,3 +1,6 @@
+/************** 
+ * DATA 
+ * ************/
 const skills = {
     "AI": {
         "AI Research Engineer": [
@@ -34,7 +37,14 @@ const skills = {
 const planetTypes = ['earth', 'mercury', 'uranus', 'venus', 'mars', 'neptune', 'jupiter']
 const moonFrequency = 20;
 const ringFrequency = 20;
+let isZoomedIntoPlanet = false;
+let onSolarSystem = undefined;
+let onPlanet = undefined;
+let visitingPlanetOrbitSize = undefined
 
+/********************
+ * Planet Generation
+ * ******************/
 function getRandomFloatBetweenMinAndMax(min, max) {
     return Math.random() * (max - min) + min
 }
@@ -136,6 +146,8 @@ function generatePlanet(solarSystem, planetData, distanceToCenter) {
         totalDistanceToCenter += 2
     }
 
+    planet.addEventListener("click", function() {navigateToPlanet(solarSystem, planetContainer)})
+
     const dl = document.createElement("dl")
     dl.classList.add("infos")
 
@@ -201,6 +213,71 @@ function generateSkillWorld() {
         //generateGalaxy(galaxy)
         generateSolarSystem(galaxy, "AI", "AI Research Engineer")
     }
+}
+
+
+/********************
+ * Navigation System
+ * ******************/
+
+const animations = {
+    zoomIntoPlanet: {
+        "animation": [
+            {transform: "scale(1) translateY(0em)"},
+            {transform: "scale(10) translateY(1em)"}
+        ], "duration": 1000
+    },
+    liftSolarSystem: {
+        "animation": [
+            {transform: "translateY(0) rotateX(75deg)"},
+            {transform: "translateY(-15em) rotateX(75deg)"}
+        ], "duration": 1000
+    }
+}
+
+function navigateToPlanet(solarSystem, planetContainer) {
+    console.log(isZoomedIntoPlanet)
+    if (isZoomedIntoPlanet) {
+        navigateOutOfPlanet();
+        return;
+    }
+    console.log("NAVIGATING TO PLANET")
+    visitingPlanetOrbitSize = planetContainer.style.getPropertyValue("--orbit-size").slice(0,-2);
+    planetContainer.style.setProperty("--orbit-size", "0em")
+    planetContainer.style.setProperty("--orbit-margin", "0em")
+    const planet = planetContainer.getElementsByClassName("planet")[0]
+    planet.classList.remove("informations-on-planet")
+    const moon = planetContainer.getElementsByClassName("moon");
+    if (moon.length > 0) {
+        moon[0].classList.add("hidden")
+    }
+    planet.animate(animations.zoomIntoPlanet.animation, {duration: animations.zoomIntoPlanet.duration, iterations: 1})
+    solarSystem.animate(animations.liftSolarSystem.animation, {duration: animations.liftSolarSystem.duration, iterations: 1})
+    planet.classList.add("zoomed-in-planet")
+    solarSystem.classList.add("lifted-solar-system")
+    onPlanet = planetContainer;
+    onSolarSystem = solarSystem;
+    isZoomedIntoPlanet = true;
+}
+
+function navigateOutOfPlanet() {
+    console.log("NAVIGATING OUT OF PLANET")
+    const planet = onPlanet.getElementsByClassName("planet")[0]
+    const moon = onPlanet.getElementsByClassName("moon");
+    if (moon.length > 0) {
+        moon[0].classList.remove("hidden")
+    }
+    planet.classList.remove("zoomed-in-planet")
+    onPlanet.style.setProperty("--orbit-size", visitingPlanetOrbitSize + "em")
+    onPlanet.style.setProperty("--orbit-margin", - visitingPlanetOrbitSize / 2 + "em")
+    planet.animate(animations.zoomIntoPlanet.animation.slice().reverse(), {duration: animations.zoomIntoPlanet.duration, iterations: 1})
+    onSolarSystem.classList.remove("lifted-solar-system")
+    onSolarSystem.animate(animations.liftSolarSystem.animation.slice().reverse(), {duration: animations.liftSolarSystem.duration, iterations: 1})
+
+    setTimeout(function(){
+        planet.classList.add("informations-on-planet")
+    }, 1000)
+    isZoomedIntoPlanet = false;
 }
 
 generateSkillWorld();
