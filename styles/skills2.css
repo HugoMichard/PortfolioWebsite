@@ -736,38 +736,53 @@ h1 {
   background-image: url("../images/skills/moon1.png");
 }
 
-/* --------------------------------------------------------------------------- responsive styles */
+/* Planet cards */
 
-#navbar, #controls, #data {
-background: transparent; }
+.planet-cards {
+  position: absolute;
+  width: 100%;
+  top: 35%;
+  min-height: 50%;
+  pointer-events: none;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: stretch;
+  z-index: 15;
+  transform: translate3d(0px, 0px, 10000px);
+}
 
-#navbar a {
-display: none; }
+.planet-card {
+  background: rgba(1,1,1,0.8);
+  width: fit-content;
+  padding: 15px;
+  margin: 30px;
+  color:white;
+}
 
-h1 {
-font-size: 22px;
-margin-top: 8px; }
+.planet-card h1 {
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 0px;
+}
 
-#controls {
-padding-right: 32px;
-top: 12px; }
+.planet-card h2 {
+  margin-top: 0px;
+  text-align: right;
+}
 
-#data {
-position: fixed;
-top: inherit;
-bottom: 0;
-width: 100%;
-text-align: center; }
+.planet-card p {
+  font-size: 20px;
+  margin-bottom: 50px;
+}
 
-#data a {
-display: inline-block;
-text-align: center;
-font-size: 20px;
-padding: 15px 15px; }
+.planet-card p a {
+  pointer-events: all;
+}
 
-.data-open #data, .data-close #data {
-left: 0px; }
-
+.planet-card .other-skills {
+  text-decoration: underline;
+}
 
 /* Navigation Animations */
 .zoomed-in-planet {
