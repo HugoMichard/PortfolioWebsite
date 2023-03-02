@@ -4,7 +4,7 @@
 const skills = {
     "AI": {
         "AI Research Engineer": [
-            {"technology": "Tensorflow Keras", "stars": 5, "projects": ["coucou", "test"]},
+            {"technology": "Tensorflow Keras", "stars": 5, "projects": [{"title": "TrackMyAssets", "descriptions": ["TrackMyAssets allows users to track their assets accross different platforms and evaluate their investments and returns.", "Assets tracked can be of different type : stock market, cryptocurrencies, fixed value assets and staked cryptocurrencies in decentralized exchange pools or farms."], "duration": "1 year", "other": "Node.js, Express.js, MySQL, Data Scrapping, Data Visualization", "link": {"before": "It is open-source on my GitHub: ", "href": "https://github.com/HugoMichard/TrackMyAssets"}}, {"title": "TrackMyAssets", "descriptions": ["TrackMyAssets allows users to track their assets accross different platforms and evaluate their investments and returns.", "Assets tracked can be of different type : stock market, cryptocurrencies, fixed value assets and staked cryptocurrencies in decentralized exchange pools or farms."], "duration": "1 year", "other": "Node.js, Express.js, MySQL, Data Scrapping, Data Visualization", "link": {"before": "It is open-source on my GitHub: ", "href": "https://github.com/HugoMichard/TrackMyAssets"}}]},
             {"technology": "Pytorch", "stars": 4, "projects": [""]},
             {"technology": "Deep Learning Modelization", "stars": 5, "projects": [""]},
             {"technology": "Machine Learning Modelization", "stars": 4, "projects": [""]},
@@ -33,7 +33,7 @@ const skills = {
     ]
 }
 
-
+const skillsContainer = document.getElementsByClassName("skills-container")[0]
 const planetTypes = ['earth', 'mercury', 'uranus', 'venus', 'mars', 'neptune', 'jupiter']
 const moonFrequency = 20;
 const ringFrequency = 20;
@@ -110,6 +110,54 @@ function generateRing(planet) {
     planet.appendChild(ring);
 }
 
+function createPlanetCards(planetData) {
+    const cards = document.createElement("div")
+    cards.classList.add("planet-cards")
+
+    for(const project of planetData["projects"]) {
+        const card = document.createElement("div")
+        card.classList.add("planet-card")
+
+        const title = document.createElement("h1")
+        title.textContent = project["title"]
+        card.appendChild(title)
+
+        const duration = document.createElement("h2")
+        duration.textContent = project["duration"]
+        card.appendChild(duration)
+
+        for(const description of project["descriptions"]) {
+            const p = document.createElement("p")    
+            p.textContent = description
+            card.appendChild(p)
+        }
+
+        if (project["link"] !== undefined) {
+            const link = document.createElement("p")
+            link.textContent = project["link"]["before"]
+            const a = document.createElement("a")
+            a.href = project["link"]["href"]
+            a.textContent = project["link"]["href"]
+            link.appendChild(a)
+            card.appendChild(link)
+        }
+
+        const otherTitle = document.createElement("p")
+        otherTitle.classList.add("other-skills")
+        otherTitle.textContent = "Other skills in this project: "
+        card.appendChild(otherTitle)
+
+        const other = document.createElement("p")
+        other.textContent = project["other"]
+        card.appendChild(other)
+
+        cards.appendChild(card)
+    }
+
+    skillsContainer.appendChild(cards)
+
+}
+
 function generatePlanet(solarSystem, planetData, distanceToCenter) {
     const planetType = planetTypes[getRandomIntegerBetweenMinAndMax(0, planetTypes.length - 1)]
     const planetSize = getRandomFloatBetweenMinAndMax(1, 8);
@@ -146,7 +194,7 @@ function generatePlanet(solarSystem, planetData, distanceToCenter) {
         totalDistanceToCenter += 2
     }
 
-    planet.addEventListener("click", function() {navigateToPlanet(solarSystem, planetContainer)})
+    planet.addEventListener("click", function() {navigateToPlanet(solarSystem, planetContainer, planetData)})
 
     const dl = document.createElement("dl")
     dl.classList.add("infos")
@@ -235,13 +283,14 @@ const animations = {
     }
 }
 
-function navigateToPlanet(solarSystem, planetContainer) {
+function navigateToPlanet(solarSystem, planetContainer, planetData) {
     console.log(isZoomedIntoPlanet)
     if (isZoomedIntoPlanet) {
         navigateOutOfPlanet();
         return;
     }
     console.log("NAVIGATING TO PLANET")
+    // Zoom into planet and drag solar system up
     visitingPlanetOrbitSize = planetContainer.style.getPropertyValue("--orbit-size").slice(0,-2);
     planetContainer.style.setProperty("--orbit-size", "0em")
     planetContainer.style.setProperty("--orbit-margin", "0em")
@@ -255,9 +304,13 @@ function navigateToPlanet(solarSystem, planetContainer) {
     solarSystem.animate(animations.liftSolarSystem.animation, {duration: animations.liftSolarSystem.duration, iterations: 1})
     planet.classList.add("zoomed-in-planet")
     solarSystem.classList.add("lifted-solar-system")
+    // display planet cards
+    createPlanetCards(planetData);
+
     onPlanet = planetContainer;
     onSolarSystem = solarSystem;
     isZoomedIntoPlanet = true;
+
 }
 
 function navigateOutOfPlanet() {
