@@ -34,6 +34,7 @@ const skills = {
 }
 
 const skillsContainer = document.getElementsByClassName("skills-container")[0]
+const navigationTitle = document.getElementById("skill-navigation-title")
 const planetTypes = ['earth', 'mercury', 'uranus', 'venus', 'mars', 'neptune', 'jupiter']
 const moonFrequency = 20;
 const ringFrequency = 20;
@@ -155,6 +156,8 @@ function createPlanetCards(planetData) {
     }
 
     skillsContainer.appendChild(cards)
+    cards.animate(animations.fadeIn.animation, {duration: animations.zoomIntoPlanet.duration, iterations: 1})
+
 
 }
 
@@ -280,6 +283,12 @@ const animations = {
             {transform: "translateY(0) rotateX(75deg)"},
             {transform: "translateY(-15em) rotateX(75deg)"}
         ], "duration": 1000
+    },
+    fadeIn: {
+        "animation": [
+            {opacity: 0},
+            {opacity: 1}
+        ], "duration": 1200
     }
 }
 
@@ -302,10 +311,14 @@ function navigateToPlanet(solarSystem, planetContainer, planetData) {
     }
     planet.animate(animations.zoomIntoPlanet.animation, {duration: animations.zoomIntoPlanet.duration, iterations: 1})
     solarSystem.animate(animations.liftSolarSystem.animation, {duration: animations.liftSolarSystem.duration, iterations: 1})
+    navigationTitle.animate(animations.fadeIn.animation.slice().reverse(), {duration: animations.fadeIn.duration, iterations: 1})
     planet.classList.add("zoomed-in-planet")
     solarSystem.classList.add("lifted-solar-system")
     // display planet cards
     createPlanetCards(planetData);
+    setTimeout(function() {
+        navigationTitle.classList.add("hidden")
+    }, 1000)
 
     onPlanet = planetContainer;
     onSolarSystem = solarSystem;
@@ -315,20 +328,25 @@ function navigateToPlanet(solarSystem, planetContainer, planetData) {
 
 function navigateOutOfPlanet() {
     console.log("NAVIGATING OUT OF PLANET")
+    const cards = document.getElementsByClassName("planet-cards")[0]
     const planet = onPlanet.getElementsByClassName("planet")[0]
     const moon = onPlanet.getElementsByClassName("moon");
     if (moon.length > 0) {
         moon[0].classList.remove("hidden")
     }
     planet.classList.remove("zoomed-in-planet")
+    navigationTitle.classList.remove("hidden")
     onPlanet.style.setProperty("--orbit-size", visitingPlanetOrbitSize + "em")
     onPlanet.style.setProperty("--orbit-margin", - visitingPlanetOrbitSize / 2 + "em")
     planet.animate(animations.zoomIntoPlanet.animation.slice().reverse(), {duration: animations.zoomIntoPlanet.duration, iterations: 1})
+    cards.animate(animations.fadeIn.animation.slice().reverse(), {duration: animations.fadeIn.duration, iterations: 1})
+    navigationTitle.animate(animations.fadeIn.animation, {duration: animations.fadeIn.duration, iterations: 1})
     onSolarSystem.classList.remove("lifted-solar-system")
     onSolarSystem.animate(animations.liftSolarSystem.animation.slice().reverse(), {duration: animations.liftSolarSystem.duration, iterations: 1})
 
     setTimeout(function(){
         planet.classList.add("informations-on-planet")
+        cards.remove()
     }, 1000)
     isZoomedIntoPlanet = false;
 }

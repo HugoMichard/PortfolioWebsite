@@ -1,3 +1,7 @@
+.skills-container {
+  text-align: center;
+}
+
 .solar-system {
   position: absolute;
   width: 100%;
@@ -95,6 +99,12 @@
   border: 0.07em solid var(--inner-ring-color);
   box-sizing: border-box;
   box-sizing: border-box; }
+
+#skill-navigation-title {
+  top: 90%;
+  position: relative;
+  color: white;
+}
 
 /* --------------------------------------------------------------------------- animations */
 @keyframes orbit {
@@ -782,6 +792,7 @@ h1 {
 
 .planet-card .other-skills {
   text-decoration: underline;
+  margin-bottom: 0px;
 }
 
 /* Navigation Animations */

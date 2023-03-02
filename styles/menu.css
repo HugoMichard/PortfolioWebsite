@@ -6,6 +6,10 @@ body {
     overflow: hidden;
 }
 
+.menu-button-container {
+    text-align: center;
+}
+
 .rubik-font {
     font-family: "Rubik", sans-serif;
 }
@@ -82,7 +86,6 @@ body[data-nav="true"] > nav > #nav-links {
     width: 5rem;
     position: fixed;
     z-index: 100;
-    left: 50%;
     top: 3rem;
     border: none;
     border-radius: 5rem;
