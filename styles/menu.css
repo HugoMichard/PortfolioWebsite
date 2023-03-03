@@ -8,6 +8,9 @@ body {
 
 .menu-button-container {
     text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .rubik-font {
