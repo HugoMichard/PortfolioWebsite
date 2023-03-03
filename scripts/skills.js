@@ -38,7 +38,8 @@ const navigationTitle = document.getElementById("skill-navigation-title")
 const planetTypes = ['earth', 'mercury', 'uranus', 'venus', 'mars', 'neptune', 'jupiter']
 const moonFrequency = 20;
 const ringFrequency = 20;
-let isZoomedIntoPlanet = false;
+let navigationRegion = "galaxy";
+let onGalaxy = document.getElementsByClassName("galaxy")[0];
 let onSolarSystem = undefined;
 let onPlanet = undefined;
 let visitingPlanetOrbitSize = undefined
@@ -157,8 +158,6 @@ function createPlanetCards(planetData) {
 
     skillsContainer.appendChild(cards)
     cards.animate(animations.fadeIn.animation, {duration: animations.zoomIntoPlanet.duration, iterations: 1})
-
-
 }
 
 function generatePlanet(solarSystem, planetData, distanceToCenter) {
@@ -176,7 +175,8 @@ function generatePlanet(solarSystem, planetData, distanceToCenter) {
     const planetContainer = document.createElement("div")
     planetContainer.classList.add(planetType)
     planetContainer.classList.add("orbit")
-    planetContainer.style.setProperty("--animation-duration", orbitSize / 5 + "s")
+    planetContainer.classList.add("planet-container")
+    planetContainer.style.setProperty("--animation-duration", 10* orbitSize / 5 + "s")
     planetContainer.style.setProperty("--orbit-size", orbitSize + "em")
     planetContainer.style.setProperty("--orbit-margin", - orbitSize / 2 + "em")
     planetContainer.style.setProperty("--z-index", "10")
@@ -248,6 +248,8 @@ function generateSun(solarSystem) {
 function generateSolarSystem(galaxy, galaxyName, solarSystemName) {
     const solarSystem = document.createElement("div")
     solarSystem.classList.add("solar-system")
+    solarSystem.classList.add("reduced-solar-system")
+    solarSystem.classList.add("reduced-solar-system-transform")
     let distanceToCenter = generateSun(solarSystem);
 
     for(const planetData of skills[galaxyName][solarSystemName]) {
@@ -255,6 +257,7 @@ function generateSolarSystem(galaxy, galaxyName, solarSystemName) {
         distanceToCenter = generatePlanet(solarSystem, planetData, distanceToCenter);
     }
 
+    solarSystem.addEventListener("click", function(){navigateToSystem(solarSystem)})
     galaxy.appendChild(solarSystem);
 }
 
@@ -263,7 +266,9 @@ function generateSkillWorld() {
     for(const galaxy of document.getElementsByClassName("galaxy")) {
         //generateGalaxy(galaxy)
         generateSolarSystem(galaxy, "AI", "AI Research Engineer")
+        generateSolarSystem(galaxy, "AI", "Data Engineer")
     }
+    onGalaxy = document.getElementsByClassName("galaxy")[0];
 }
 
 
@@ -289,12 +294,27 @@ const animations = {
             {opacity: 0},
             {opacity: 1}
         ], "duration": 1200
+    },
+    exitSolarSystem: {
+        "animation": [
+            {transform: "scale(1) rotateX(75deg)", height: "100%"},
+            {transform: "scale(0.5) rotateX(75deg)", height: "50%"},
+        ], "duration": 1000
+    },
+    makeSolarSystemDisappear: {
+        "animation": [
+            {transform: "scale(0.5) rotateX(75deg)"},
+            {transform: "scale(0.01) rotateX(75deg)"}, 
+        ], "duration": 1000
     }
 }
 
 function navigateToPlanet(solarSystem, planetContainer, planetData) {
-    console.log(isZoomedIntoPlanet)
-    if (isZoomedIntoPlanet) {
+    if (navigationRegion == "galaxy") {
+        navigateToSystem(solarSystem);
+        return;
+    }
+    if (navigationRegion == "planet") {
         navigateOutOfPlanet();
         return;
     }
@@ -311,19 +331,18 @@ function navigateToPlanet(solarSystem, planetContainer, planetData) {
     }
     planet.animate(animations.zoomIntoPlanet.animation, {duration: animations.zoomIntoPlanet.duration, iterations: 1})
     solarSystem.animate(animations.liftSolarSystem.animation, {duration: animations.liftSolarSystem.duration, iterations: 1})
-    navigationTitle.animate(animations.fadeIn.animation.slice().reverse(), {duration: animations.fadeIn.duration, iterations: 1})
+    navigationTitle.animate(animations.fadeIn.animation.slice().reverse(), {duration: 200, iterations: 1})
     planet.classList.add("zoomed-in-planet")
     solarSystem.classList.add("lifted-solar-system")
     // display planet cards
     createPlanetCards(planetData);
     setTimeout(function() {
         navigationTitle.classList.add("hidden")
-    }, 1000)
+    }, 200)
 
     onPlanet = planetContainer;
     onSolarSystem = solarSystem;
-    isZoomedIntoPlanet = true;
-
+    navigationRegion = "planet";
 }
 
 function navigateOutOfPlanet() {
@@ -348,7 +367,66 @@ function navigateOutOfPlanet() {
         planet.classList.add("informations-on-planet")
         cards.remove()
     }, 1000)
-    isZoomedIntoPlanet = false;
+    navigationRegion = "system";
 }
 
+function navigateToSystem(solarSystem) {
+    if (navigationRegion != "galaxy") return;
+    console.log("NAVIGATING TO System")
+
+    for(const system of onGalaxy.getElementsByClassName("solar-system")) {
+        system.classList.remove("clickable")
+    }
+    /* Reduce all other solar systems of the galaxy */
+    for(const system of onGalaxy.getElementsByClassName("solar-system")) {
+        if(system != solarSystem) {
+            system.classList.remove("reduced-solar-system")
+            system.classList.remove("reduced-solar-system-transform")
+            system.animate(animations.makeSolarSystemDisappear.animation, {duration: animations.makeSolarSystemDisappear.duration, iterations: 1})
+            system.classList.add("not-selected-solar-system")
+        }
+    }
+
+    /* Increase the size of the solar system */
+    solarSystem.animate(animations.exitSolarSystem.animation.slice().reverse(), {duration: animations.exitSolarSystem.duration, iterations: 1})
+    solarSystem.classList.remove("reduced-solar-system")
+    solarSystem.classList.remove("reduced-solar-system-transform")
+    solarSystem.classList.add("selected-solar-system")
+    onSolarSystem = solarSystem
+
+    navigationRegion = "system";
+}
+
+function navigateOutOfSystem() {
+    if (navigationRegion != "system") return;
+    console.log("NAVIGATING OUT OF System")
+
+    onSolarSystem.classList.remove("selected-solar-system")
+
+    /* Increase all other solar systems of the galaxy */
+    for(const system of onGalaxy.getElementsByClassName("solar-system")) {
+        if(system != onSolarSystem) {
+            system.animate(animations.makeSolarSystemDisappear.animation.slice().reverse(), {duration: animations.makeSolarSystemDisappear.duration, iterations: 1})
+            system.classList.remove("not-selected-solar-system")
+        }
+    }
+    for(const system of onGalaxy.getElementsByClassName("solar-system")) {
+        system.classList.add("clickable")
+        system.classList.add("reduced-solar-system")
+        setTimeout(function() {
+            system.classList.add("reduced-solar-system-transform")
+        }, 1000)
+    }
+
+    /* Reduce the size of the solar system */
+    onSolarSystem.animate(animations.exitSolarSystem.animation, {duration: animations.exitSolarSystem.duration, iterations: 1})
+    navigationRegion = "galaxy";
+}
+
+function navigateBack() {
+    if(navigationRegion == "planet") {navigateOutOfPlanet(); return;}
+    if(navigationRegion == "system") {navigateOutOfSystem(); return;}
+}
+
+document.getElementById("skill-navigation-back").addEventListener("click", navigateBack);
 generateSkillWorld();
