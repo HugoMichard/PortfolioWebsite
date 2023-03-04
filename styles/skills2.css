@@ -20,7 +20,7 @@
 }
 
 .not-selected-solar-system {
-  transform: scale(0.01) rotateX(75deg) !important;
+  transform: scale(0.0001) rotateX(75deg) !important;
 }
 
 .reduced-solar-system-transform {

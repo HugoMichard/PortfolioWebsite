@@ -35,6 +35,7 @@ const skills = {
 
 const skillsContainer = document.getElementsByClassName("skills-container")[0]
 const navigationTitle = document.getElementById("skill-navigation-title")
+navigationTitle.textContent = "Choose a Solar System to discover"
 const planetTypes = ['earth', 'mercury', 'uranus', 'venus', 'mars', 'neptune', 'jupiter']
 const moonFrequency = 20;
 const ringFrequency = 20;
@@ -304,7 +305,7 @@ const animations = {
     makeSolarSystemDisappear: {
         "animation": [
             {transform: "scale(0.5) rotateX(75deg)"},
-            {transform: "scale(0.01) rotateX(75deg)"}, 
+            {transform: "scale(0.0001) rotateX(75deg)"}, 
         ], "duration": 1000
     }
 }
@@ -380,7 +381,6 @@ function navigateToSystem(solarSystem) {
     /* Reduce all other solar systems of the galaxy */
     for(const system of onGalaxy.getElementsByClassName("solar-system")) {
         if(system != solarSystem) {
-            system.classList.remove("reduced-solar-system")
             system.classList.remove("reduced-solar-system-transform")
             system.animate(animations.makeSolarSystemDisappear.animation, {duration: animations.makeSolarSystemDisappear.duration, iterations: 1})
             system.classList.add("not-selected-solar-system")
@@ -393,6 +393,7 @@ function navigateToSystem(solarSystem) {
     solarSystem.classList.remove("reduced-solar-system-transform")
     solarSystem.classList.add("selected-solar-system")
     onSolarSystem = solarSystem
+    navigationTitle.textContent = "Pick a Planet to visit"
 
     navigationRegion = "system";
 }
@@ -412,14 +413,13 @@ function navigateOutOfSystem() {
     }
     for(const system of onGalaxy.getElementsByClassName("solar-system")) {
         system.classList.add("clickable")
-        system.classList.add("reduced-solar-system")
-        setTimeout(function() {
-            system.classList.add("reduced-solar-system-transform")
-        }, 1000)
+        setTimeout(function() {system.classList.add("reduced-solar-system-transform")}, 1000)
     }
 
     /* Reduce the size of the solar system */
     onSolarSystem.animate(animations.exitSolarSystem.animation, {duration: animations.exitSolarSystem.duration, iterations: 1})
+    onSolarSystem.classList.add("reduced-solar-system")
+    navigationTitle.textContent = "Choose a Solar System to discover"
     navigationRegion = "galaxy";
 }
 
