@@ -36,6 +36,7 @@ const navigationTitle = document.getElementById("skill-navigation-title")
 const navigationBackButton = document.getElementById("skill-navigation-back")
 navigationTitle.textContent = "Click on a Galaxy to explore"
 const planetTypes = ['earth', 'mercury', 'uranus', 'venus', 'mars', 'neptune', 'jupiter']
+const moonTypes = ['type-1', 'type-2', 'type-3']
 const moonFrequency = 20;
 const ringFrequency = 20;
 let navigationRegion = "universe";
@@ -44,8 +45,16 @@ let onSolarSystem = undefined;
 let onPlanet = undefined;
 let visitingPlanetOrbitSize = undefined
 
-/********************
- * Planet Generation
+function initializeNavigation() {
+    navigationRegion = "universe";
+    onGalaxy = undefined;
+    onSolarSystem = undefined;
+    onPlanet = undefined;
+    visitingPlanetOrbitSize = undefined
+}
+
+/*********************
+ * Universe Generation
  * ******************/
 function getRandomFloatBetweenMinAndMax(min, max) {
     return Math.random() * (max - min) + min
@@ -55,28 +64,8 @@ function getRandomIntegerBetweenMinAndMax(min, max) {
     return Math.round(getRandomFloatBetweenMinAndMax(min, max))
 }
 
-
-function generateRandomPlanet(galaxy) {
-    const planet = document.createElement("div")
-    planet.classList.add("planet")
-    planet.classList.add("blurry-planet")
-    const maxBlur = getRandomFloatBetweenMinAndMax(3, 7);
-    const minBlur = getRandomFloatBetweenMinAndMax(0, maxBlur);
-    const blurSpeed = getRandomFloatBetweenMinAndMax(10, 30);
-    const size = getRandomFloatBetweenMinAndMax(2, 15);
-    const positionTop = getRandomFloatBetweenMinAndMax(-15, 15);
-    const positionLeft = getRandomFloatBetweenMinAndMax(-15, 15);
-    planet.style.setProperty("--size", size + "px")
-    planet.style.setProperty("--left", 50 + positionLeft + "%")
-    planet.style.setProperty("--top", 50 + positionTop + "%")
-    planet.style.setProperty("--blur", maxBlur + "px")
-    planet.style.setProperty("--min-blur", minBlur + "px")
-    planet.style.setProperty("--blur-speed", blurSpeed + "s")
-
-    galaxy.appendChild(planet);
-}
-
 function generateMoon(planetPos, planetSize){
+    const moonType = moonTypes[getRandomIntegerBetweenMinAndMax(0, moonTypes.length - 1)]
     const moonSpeed = getRandomFloatBetweenMinAndMax(1, 3)
     const moonSize = getRandomFloatBetweenMinAndMax(1, 4)
     const orbitSize = getRandomFloatBetweenMinAndMax(planetSize + moonSize + 2, planetSize + moonSize + 5)
@@ -93,6 +82,7 @@ function generateMoon(planetPos, planetSize){
     pos.classList.add("pos")
     const m = document.createElement("div")
     m.classList.add("moon")
+    m.classList.add("moon-" + moonType)
 
     pos.appendChild(m);
     moon.appendChild(pos);
@@ -266,7 +256,6 @@ function generateGalaxy(galaxyName) {
     }
 
     universe.appendChild(galaxy)
-    // universe.appendChild(galaxyBackground)
 }
 
 function generateGalaxyBackgrounds() {
@@ -316,7 +305,8 @@ function generateSkillUniverse() {
 }
 
 function removeSkillUniverse() {
-    universe.innerHTML = ""
+    universe.replaceChildren()
+    initializeNavigation()
 }
 
 /********************

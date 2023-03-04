@@ -874,7 +874,18 @@ h1 {
   pointer-events: none;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.moon-type-1 {
   background-image: url("../images/skills/moon1.png");
+}
+
+.moon-type-2 {
+  background-image: url("../images/skills/moon2.png");
+}
+
+.moon-type-2 {
+  background-image: url("../images/skills/moon3.png");
 }
 
 /* Planet cards */
