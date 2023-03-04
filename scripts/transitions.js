@@ -52,6 +52,9 @@ function runTransition(section, transition_type) {
 const navigate = (e) => {
     const navDestination = e.target.parentNode.text.trim()
 
+    if (current_slide !== "skills" && navDestination === "Skills") {generateSkillUniverse()}
+    if (current_slide === "skills" && navDestination !== "Skills") {removeSkillUniverse()}
+
     if (navDestination.toLowerCase() === current_slide) return
     if ((navDestination === "Work" || navDestination === "Education") && current_slide === "track") return
 

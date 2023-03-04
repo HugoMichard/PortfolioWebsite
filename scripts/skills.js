@@ -16,31 +16,30 @@ const skills = {
             {"technology": "Data Scrapping", "stars": 4, "projects": [""]}
         ]
     },
-    "Software Development": [
-        {
-            "Frontend": [
-                {"technology": "Pure Javascript", "stars": 4, "projects": [""]},
-                {"technology": "React", "stars": 4, "projects": [""]},
-                {"technology": "Vue", "stars": 4, "projects": [""]},
-            ],
-            "Backend": [
-                {"technology": "Node.js / Express.js", "stars": 4, "projects": [""]},
-                {"technology": "Django", "stars": 4, "projects": [""]},
-                {"technology": "Laravel", "stars": 4, "projects": [""]},
-                {"technology": "SQL (with MySQL, PostgreSQL)", "stars": 4, "projects": [""]}
-            ]
-        }
-    ]
+    "Software Development": {
+        "Frontend": [
+            {"technology": "Pure Javascript", "stars": 4, "projects": [""]},
+            {"technology": "React", "stars": 4, "projects": [""]},
+            {"technology": "Vue", "stars": 4, "projects": [""]},
+        ],
+        "Backend": [
+            {"technology": "Node.js / Express.js", "stars": 4, "projects": [""]},
+            {"technology": "Django", "stars": 4, "projects": [""]},
+            {"technology": "Laravel", "stars": 4, "projects": [""]},
+            {"technology": "SQL (with MySQL, PostgreSQL)", "stars": 4, "projects": [""]}
+        ]
+    }
 }
 
-const skillsContainer = document.getElementsByClassName("skills-container")[0]
+const universe = document.getElementsByClassName("universe")[0]
 const navigationTitle = document.getElementById("skill-navigation-title")
+const navigationBackButton = document.getElementById("skill-navigation-back")
 navigationTitle.textContent = "Choose a Solar System to discover"
 const planetTypes = ['earth', 'mercury', 'uranus', 'venus', 'mars', 'neptune', 'jupiter']
 const moonFrequency = 20;
 const ringFrequency = 20;
-let navigationRegion = "galaxy";
-let onGalaxy = document.getElementsByClassName("galaxy")[0];
+let navigationRegion = "universe";
+let onGalaxy = undefined;
 let onSolarSystem = undefined;
 let onPlanet = undefined;
 let visitingPlanetOrbitSize = undefined
@@ -75,13 +74,6 @@ function generateRandomPlanet(galaxy) {
     planet.style.setProperty("--blur-speed", blurSpeed + "s")
 
     galaxy.appendChild(planet);
-}
-
-function generateGalaxy(galaxy) {
-    let nb_of_random_planets = getRandomIntegerBetweenMinAndMax(30, 100);
-    for(const i of Array(nb_of_random_planets).keys()) {
-        generateRandomPlanet(galaxy)
-    }
 }
 
 function generateMoon(planetPos, planetSize){
@@ -157,7 +149,7 @@ function createPlanetCards(planetData) {
         cards.appendChild(card)
     }
 
-    skillsContainer.appendChild(cards)
+    universe.appendChild(cards)
     cards.animate(animations.fadeIn.animation, {duration: animations.zoomIntoPlanet.duration, iterations: 1})
 }
 
@@ -254,7 +246,6 @@ function generateSolarSystem(galaxy, galaxyName, solarSystemName) {
     let distanceToCenter = generateSun(solarSystem);
 
     for(const planetData of skills[galaxyName][solarSystemName]) {
-        //generateGalaxy(galaxy)
         distanceToCenter = generatePlanet(solarSystem, planetData, distanceToCenter);
     }
 
@@ -262,16 +253,71 @@ function generateSolarSystem(galaxy, galaxyName, solarSystemName) {
     galaxy.appendChild(solarSystem);
 }
 
+function generateGalaxy(galaxyName) {
+    const galaxy = document.createElement("div")
+    galaxy.classList.add("galaxy")
+    galaxy.classList.add("view-3D")
+    galaxy.classList.add("reduced-galaxy")
+    galaxy.classList.add("reduced-galaxy-transform")
+    galaxy.id = "galaxy-" + galaxyName
 
-function generateSkillWorld() {
-    for(const galaxy of document.getElementsByClassName("galaxy")) {
-        //generateGalaxy(galaxy)
-        generateSolarSystem(galaxy, "AI", "AI Research Engineer")
-        generateSolarSystem(galaxy, "AI", "Data Engineer")
+    for(const solarSystemName of Object.keys(skills[galaxyName])) {
+        generateSolarSystem(galaxy, galaxyName, solarSystemName)
     }
-    onGalaxy = document.getElementsByClassName("galaxy")[0];
+
+    universe.appendChild(galaxy)
+    // universe.appendChild(galaxyBackground)
 }
 
+function generateGalaxyBackgrounds() {
+    const clickerContainer = document.createElement("div")
+    clickerContainer.classList.add("galaxy-clicker-container")
+
+    for(const galaxyName of Object.keys(skills)) {
+        const galaxyBackground = document.createElement("canvas")
+        galaxyBackground.classList.add("galaxy-background")
+        galaxyBackground.animate(animations.fadeIn.animation, {duration:300, iterations: 1})
+
+        const title = document.createElement("h2")
+        title.classList.add("galaxy-title")
+        title.textContent = galaxyName + ' Galaxy'
+        title.animate(animations.fadeIn.animation, {duration:300, iterations: 1})
+
+        const clicker = document.createElement("div")
+        clicker.classList.add("galaxy-clicker")
+        clicker.addEventListener("click", function() {navigateToGalaxy(galaxyName)})
+        clickerContainer.append(clicker)
+
+        universe.appendChild(title)
+        universe.appendChild(galaxyBackground)
+    }
+    universe.appendChild(clickerContainer)
+    navigationBackButton.classList.add("hidden")
+}
+
+function removeGalaxyBackgrounds() {
+    for(const galaxyBackground of document.getElementsByClassName("galaxy-background")) {
+        galaxyBackground.animate(animations.fadeIn.animation.slice().reverse(), {duration:300, iterations: 1})
+        setTimeout(function() {galaxyBackground.remove()}, 280)
+    }
+    for(const title of document.getElementsByClassName("galaxy-title")) {
+        title.animate(animations.fadeIn.animation.slice().reverse(), {duration:300, iterations: 1})
+        setTimeout(function() {title.remove()}, 280)
+    }
+    document.getElementsByClassName("galaxy-clicker-container")[0].remove()
+    navigationBackButton.classList.remove("hidden")
+}
+
+function generateSkillUniverse() {
+    for(const galaxyName of Object.keys(skills)) {
+        generateGalaxy(galaxyName)
+    }
+    generateGalaxyBackgrounds()
+}
+
+function removeSkillUniverse() {
+    universe.innerHTML = ""
+}
 
 /********************
  * Navigation System
@@ -307,6 +353,18 @@ const animations = {
             {transform: "scale(0.5) rotateX(75deg)"},
             {transform: "scale(0.0001) rotateX(75deg)"}, 
         ], "duration": 1000
+    },
+    exitGalaxy: {
+        "animation": {
+            "AI": [
+                {transform: "scale(1)", left: "0%", width: "100%"},
+                {transform: "scale(0.1)", left: "25%", width: "0%"}
+            ],
+            "Software Development": [
+                {transform: "scale(1)", left: "0%", width: "100%"},
+                {transform: "scale(0.1)", left: "75%", width: "0%"}
+            ]
+        }, "duration": 1000
     }
 }
 
@@ -423,10 +481,46 @@ function navigateOutOfSystem() {
     navigationRegion = "galaxy";
 }
 
+function navigateToGalaxy(galaxyName) {
+    if (navigationRegion != "universe") return;
+    console.log("NAVIGATING TO Galaxy")
+    const galaxy = document.getElementById("galaxy-" + galaxyName)
+    removeGalaxyBackgrounds()
+
+    setTimeout(function() {
+        galaxy.animate(animations.exitGalaxy.animation[galaxyName].slice().reverse(), {duration: animations.exitGalaxy.duration, iterations: 1})
+        setTimeout(function(){
+            galaxy.classList.remove("reduced-galaxy-transform");
+        }, 1000)
+        galaxy.classList.remove("reduced-galaxy")
+        onGalaxy = galaxy;
+        navigationTitle.textContent = "Choose a Solar System to discover"
+        navigationRegion = "galaxy";    
+    }, 510)
+}
+
+function navigateOutOfGalaxy() {
+    if (navigationRegion != "galaxy") return;
+    console.log("NAVIGATING OUT OF Galaxy")
+    const galaxyName = onGalaxy.id.replace('galaxy-', '')
+    
+    onGalaxy.animate(animations.exitGalaxy.animation[galaxyName], {duration: animations.exitGalaxy.duration, iterations: 1})
+    setTimeout(function(){
+        onGalaxy.classList.add("reduced-galaxy-transform");
+    }, 1000)
+    setTimeout(function(){
+        generateGalaxyBackgrounds()
+    }, 1200)
+    onGalaxy.classList.add("reduced-galaxy");
+
+    navigationTitle.textContent = "Click on a Galaxy to explore"
+    navigationRegion = "universe"
+}
+
 function navigateBack() {
     if(navigationRegion == "planet") {navigateOutOfPlanet(); return;}
     if(navigationRegion == "system") {navigateOutOfSystem(); return;}
+    if(navigationRegion == "galaxy") {navigateOutOfGalaxy(); return;}
 }
 
-document.getElementById("skill-navigation-back").addEventListener("click", navigateBack);
-generateSkillWorld();
+navigationBackButton.addEventListener("click", navigateBack);
