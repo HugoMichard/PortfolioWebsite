@@ -225,9 +225,10 @@ function generatePlanet(solarSystem, planetData, distanceToCenter) {
     return totalDistanceToCenter / 2 
 }
 
-function generateSun(solarSystem) {
+function generateSun(solarSystem, solarSystemName) {
     const sun = document.createElement("div")
     sun.classList.add("sun")
+    sun.classList.add("informations-on-planet")
     const sunSize = getRandomFloatBetweenMinAndMax(4, 15);
     sun.style.setProperty("--planet-size", sunSize + "em")
 
@@ -235,7 +236,7 @@ function generateSun(solarSystem) {
     dl.classList.add("infos")
 
     const dt = document.createElement("dt")
-    dt.textContent = 'Sun'
+    dt.textContent = solarSystemName + " Solar System"
     dl.appendChild(dt);
     const dd = document.createElement("dd")
     const s = document.createElement("span")
@@ -252,7 +253,7 @@ function generateSolarSystem(galaxy, galaxyName, solarSystemName) {
     solarSystem.classList.add("solar-system")
     solarSystem.classList.add("reduced-solar-system")
     solarSystem.classList.add("reduced-solar-system-transform")
-    let distanceToCenter = generateSun(solarSystem);
+    let distanceToCenter = generateSun(solarSystem, solarSystemName);
 
     for(const planetData of skills[galaxyName][solarSystemName]) {
         distanceToCenter = generatePlanet(solarSystem, planetData, distanceToCenter);
