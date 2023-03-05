@@ -8,14 +8,14 @@ const skills = {
                 {"title": "TrackMyAssets", "descriptions": ["TrackMyAssets allows users to track their assets accross different platforms and evaluate their investments and returns.", "Assets tracked can be of different type : stock market, cryptocurrencies, fixed value assets and staked cryptocurrencies in decentralized exchange pools or farms."], "duration": "1 year", "other": "Node.js, Express.js, MySQL, Data Scrapping, Data Visualization", "link": {"before": "It is open-source on my GitHub: ", "href": "https://github.com/HugoMichard/TrackMyAssets"}},
                 {"title": "TrackMyAssets", "descriptions": ["TrackMyAssets allows users to track their assets accross different platforms and evaluate their investments and returns.", "Assets tracked can be of different type : stock market, cryptocurrencies, fixed value assets and staked cryptocurrencies in decentralized exchange pools or farms."], "duration": "1 year", "other": "Node.js, Express.js, MySQL, Data Scrapping, Data Visualization", "link": {"before": "It is open-source on my GitHub: ", "href": "https://github.com/HugoMichard/TrackMyAssets"}}]
             },
-            {"technology": "Pytorch", "stars": 4, "projects": [""]},
-            {"technology": "Deep Learning Modelization", "stars": 5, "projects": [""]},
-            {"technology": "Machine Learning Modelization", "stars": 4, "projects": [""]},
-            {"technology": "MLOps", "stars": 4, "projects": [""]}
+            {"technology": "Pytorch", "stars": 4, "projects": []},
+            {"technology": "Deep Learning Modelization", "stars": 5, "projects": []},
+            {"technology": "Machine Learning Modelization", "stars": 4, "projects": []},
+            {"technology": "MLOps", "stars": 4, "projects": []}
         ],
         "Data Engineer": [
-            {"technology": "Data Manipulation (with Numpy, Pandas, Scikit)", "stars": 4, "projects": [""]},
-            {"technology": "Data Visualization (with Matplotlib, Seaborn, Streamlit)", "stars": 4, "projects": [""]},
+            {"technology": "Data Manipulation (with Numpy, Pandas, Scikit)", "stars": 4, "projects": []},
+            {"technology": "Data Visualization (with Matplotlib, Seaborn, Streamlit)", "stars": 4, "projects": []},
             {"technology": "Data Scrapping", "stars": 4, "projects": [
                 {"title": "TrackMyAssets", "descriptions": ["TrackMyAssets allows users to track their assets accross different platforms and evaluate their investments and returns.", "Assets tracked can be of different type : stock market, cryptocurrencies, fixed value assets and staked cryptocurrencies in decentralized exchange pools or farms."], "duration": "1 year", "other": "React, Node.js, Express.js, MySQL, Data Visualization", "link": {"before": "It is open-source on my GitHub: ", "href": "https://github.com/HugoMichard/TrackMyAssets"}},
             ]}
