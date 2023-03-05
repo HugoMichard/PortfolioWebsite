@@ -1,4 +1,4 @@
-<body id="body">
+<body id="body" draggable="false">
     <!-- CSS files -->
     <link rel="stylesheet" type="text/css" href="styles/loading.css">
     <link rel="stylesheet" type="text/css" href="styles/track.css">
@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="styles/tutorial.css">
     <link rel="stylesheet" type="text/css" href="styles/transitions.css">
     <link rel="stylesheet" type="text/css" href="styles/contact.css">
+    <link rel="stylesheet" type="text/css" href="styles/skills.css">
     <link rel="stylesheet" type="text/css" href="styles/home.css">
 
     <!-- Loading Page Animation -->
@@ -15,9 +16,12 @@
     </div>
 
     <!-- Menu -->
-    <button id="nav-toggle" type="button" onclick="toggleNav()">
-        <h2 class="rubik-font">Menu</h2>
-    </button>
+    <div class="menu-button-container">
+        <button id="nav-toggle" type="button" onclick="toggleNav()">
+            <h2 class="rubik-font">Menu</h2>
+        </button>
+    </div>
+
 
     <nav>
         <div id="nav-links">
@@ -32,6 +36,10 @@
             <a class="nav-link" onclick="goToNav('education')" draggable="false">
                 <h2 class="nav-link-label rubik-font">Education</h2>
                 <img class="nav-link-image" src="images/general/menu-education.jpg" draggable="false"/>
+            </a>
+            <a class="nav-link" onclick="goToNav('skills')" draggable="false">
+                <h2 class="nav-link-label rubik-font">Skills</h2>
+                <img class="nav-link-image" src="images/general/menu-skills.jpg" draggable="false"/>
             </a>
             <a class="nav-link" onclick="goToNav('contact')" draggable="false">
                 <h2 class="nav-link-label rubik-font">Contact</h2>
@@ -125,6 +133,21 @@
                 </div>
             </div>
         </section>
+
+        <!-- Skills section -->
+        <section id="skills-section">
+            <div class="skills-container">
+                <h1 id="skill-navigation-title">Pick a planet to visit</h1>
+                <div id="skill-navigation-back">
+                    <div class="arrow">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="universe"></div>
+            </div>
+        </section>
     </div>
 
     <div id="track-recorder" data-mouse-down-at="0" data-prev-percentage="0" data-has-user-dragged="false"></div>
@@ -132,8 +155,10 @@
     <script src="scripts/loading.js"></script>
     <script src="scripts/generate_tracks.js"></script>
     <script src="scripts/track.js"></script>
-    <script src="scripts/menu.js"></script>
     <script src="scripts/transitions.js"></script>
     <script src="scripts/home.js"></script>
+    <script src="scripts/skills.js"></script>
+    <script src="scripts/galaxy_animation.js"></script>
+    <script src="scripts/menu.js"></script>
     <script src="scripts/contact_sender.js"></script>
 </body>
