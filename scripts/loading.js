@@ -9,7 +9,7 @@ function fadeOutLoadingAnimation() {
 }
 
 window.onload = function(){
-    fadeOutLoadingAnimation();
+    setTimeout(fadeOutLoadingAnimation, 0);
 };
 
 /* Create Vec3 object for easier vector manipulation */
@@ -159,7 +159,7 @@ function draw() {
     ctx.fillStyle = "#ffffff";
     ctx.textAlign = "center";
     ctx.globalAlpha = alpha;
-    ctx.fillText("Loading ...", halfw, halfh / 2)
+    ctx.fillText("Traveling to universe ...", halfw, halfh / 2)
     if(isFaddingOut) {alpha -= alphaDelta}
     if(!isFaddingOut) {alpha += alphaDelta}
     if(alpha <= 0) {

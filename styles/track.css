@@ -23,6 +23,12 @@
     text-align: center;
 }
 
+.image-track > div > h3 {
+    color: white;
+    text-align: center;
+    font-size: 17px;
+}
+
 .image-track > div {
     transition: transform .2s; /* Animation */
 }
@@ -72,18 +78,34 @@
     text-align: center;
 }
 
+.details > * {
+    margin-left: 7%;
+    margin-right: 7%;
+}
+
 .details > h1 {
     font-size: 60px;
     top: 10%;
     position: relative;
+    text-align: justify;
 }
 
-.details > h2 {
+.details > div > h2 {
     font-size: 20px;
-    text-align: right;
+    float: left;
     margin-right: 10%;
     top: 8%;
     position: relative;
+}
+
+.details > div > h2:nth-of-type(2) {
+    float: right
+}
+
+.details > div {
+    position: relative;
+    top: 7%;
+    width: 100%;
 }
 
 .details > p {
@@ -92,6 +114,8 @@
     margin-left: 7%;
     margin-right: 7%;
     position: relative;
+    text-align: justify;
+    clear: both;
 }
 
 .details > ul {

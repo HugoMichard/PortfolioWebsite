@@ -2,7 +2,7 @@ const data = {
     "work": [
         {
             "img": "images/experience/ceabomb.jpg",
-            "short_title": "CEA",
+            "company": "CEA",
             "title": "Software Engineer Intern at the CEA",
             "time": "September 2016 - December 2016",
             "description": "The CEA manages the French Nuclear Defense. I created in this highly secure environment a full package of testing tools with javascript",
@@ -15,7 +15,7 @@ const data = {
         },
         {
             "img": "images/experience/memo.jpg",
-            "short_title": "MemoRecords",
+            "company": "MemoRecords",
             "title": "Full-stack Developer Intern at MemoRecords",
             "time": "January 2018 - July 2018",
             "description": "Memorecords is a french audiovisual start-up creating a new type of videobooth for large companies. I did a 6-month internship in this company",
@@ -28,7 +28,7 @@ const data = {
         },
         {
             "img": "images/experience/telecom.png",
-            "short_title": "Telecom SudParis",
+            "company": "Telecom SudParis",
             "title": "Deep Learning Research Intern at Telecom SudParis",
             "time": "March 2019 - April 2019",
             "description": "One-month research project on emotion recognition from videos for the european project Empatic",
@@ -40,7 +40,7 @@ const data = {
         },
         {
             "img": "images/experience/recruit.jpg",
-            "short_title": "Recruit Communications",
+            "company": "Recruit Communications",
             "title": "Machine Learning Engineer Intern at Recruit Communications",
             "time": "May 2019 - September 2019",
             "description": "Recruit Communications is a Japanese web marketing company building recruiting solutions for large companies. I went to Japan and developed a machine learning model generation software. I also worked on a Demand-Side Platform (real-time advertisement bidding)",
@@ -52,7 +52,7 @@ const data = {
         },
         {
             "img": "images/experience/klee.jpg",
-            "short_title": "KLEE Group",
+            "company": "KLEE Group",
             "title": "Software Engineer at KLEE Group",
             "time": "January 2020 - August 2020",
             "description": "Klee Group is a consulting company developing digital solutions. I worked for the DGAC (French Civil Aviation Authority) as a software engineer consultant on different projects to manage airport fees, airport accesses and drone declarations",
@@ -64,7 +64,7 @@ const data = {
         },
         {
             "img": "images/experience/cea2.jpeg",
-            "short_title": "CEA",
+            "company": "CEA",
             "title": "Computer Vision Research Engineer at CEA",
             "time": "September 2020 - November 2021",
             "description": "In a partnership with INSEP (French National Sports Institut), I worked on the research and development of computer vision solutions for high-level athletes",
@@ -77,7 +77,7 @@ const data = {
         },
         {
             "img": "images/experience/harfanglab.jpg",
-            "short_title": "HarfangLab",
+            "company": "HarfangLab",
             "title": "Artificial Intelligence Engineer at HarfangLab",
             "time": "November 2021 - Present",
             "description": "",
@@ -88,7 +88,7 @@ const data = {
     "education": [
         {
             "img": "images/education/isep.jpg",
-            "short_title": "ISEP",
+            "company": "ISEP",
             "title": "Engineering Diploma in Computer Science",
             "time": "September 2015 - September 2018",
             "description": "Isep is ranked number 2 French engineering school in digital technologies according to the Usine Digital of 2016. I majored in software development and specialized in cybersecurity and Big Data",
@@ -97,7 +97,7 @@ const data = {
         },
         {
             "img": "images/education/inha.jpg",
-            "short_title": "INHA",
+            "company": "INHA",
             "title": "Exchange student in Computer Science at INHA University",
             "time": "August 2017 - December 2017",
             "description": "I spent 6 months as an exchange student in South Korea studying computer science in INHA",
@@ -106,7 +106,7 @@ const data = {
         },
         {
             "img": "images/education/tried.jpg",
-            "short_title": "TRIED",
+            "company": "TRIED",
             "title": "Specialized Master Degree in Machine Learning and Deep Learning at Paris-Saclay University",
             "time": "September 2018 - September 2019",
             "description": "TRIED (Information Processing and Data Exploitation) is a machine learning specialized master. I studied in this master with the research programme",
@@ -132,6 +132,7 @@ function generateNode(track, d) {
     if(counter % 2 == 0) {
         node.classList.add("odd")
     }
+    generateTime(node, d)
     generateImage(node, d)
     generateShortTitle(node, d)
     generateDetails(node, d)
@@ -147,9 +148,15 @@ function generateImage(node, d) {
     node.appendChild(img)
 }
 
+function generateTime(node, d) {
+    const time = document.createElement("h3")
+    time.textContent = d.time
+    node.appendChild(time)
+}
+
 function generateShortTitle(node, d) {
     const title = document.createElement("h2")
-    title.textContent = d.short_title
+    title.textContent = d.company
     node.appendChild(title)
 }
 
@@ -158,8 +165,11 @@ function generateDetails(node, d) {
     details.classList.add("details")
     const title = document.createElement("h1")
     title.textContent = d.title
+    const companyLine = document.createElement("div")
+    const company = document.createElement("h2")
+    company.textContent = d.company
     const date = document.createElement("h2")
-    date.textContent = d.date
+    date.textContent = d.time
     const description = document.createElement("p")
     description.textContent = d.description
     const achievements = document.createElement("ul")
@@ -177,7 +187,9 @@ function generateDetails(node, d) {
         skills.appendChild(skill)
     }
     details.appendChild(title)
-    details.appendChild(date)
+    companyLine.appendChild(company)
+    companyLine.appendChild(date)
+    details.appendChild(companyLine)
     details.appendChild(description)
     details.appendChild(achievements)
     details.appendChild(document.createElement("h2"))
