@@ -4,7 +4,10 @@
 const skills = {
     "AI": {
         "AI Research Engineer": [
-            {"technology": "Tensorflow Keras", "stars": 5, "projects": [{"title": "TrackMyAssets", "descriptions": ["TrackMyAssets allows users to track their assets accross different platforms and evaluate their investments and returns.", "Assets tracked can be of different type : stock market, cryptocurrencies, fixed value assets and staked cryptocurrencies in decentralized exchange pools or farms."], "duration": "1 year", "other": "Node.js, Express.js, MySQL, Data Scrapping, Data Visualization", "link": {"before": "It is open-source on my GitHub: ", "href": "https://github.com/HugoMichard/TrackMyAssets"}}, {"title": "TrackMyAssets", "descriptions": ["TrackMyAssets allows users to track their assets accross different platforms and evaluate their investments and returns.", "Assets tracked can be of different type : stock market, cryptocurrencies, fixed value assets and staked cryptocurrencies in decentralized exchange pools or farms."], "duration": "1 year", "other": "Node.js, Express.js, MySQL, Data Scrapping, Data Visualization", "link": {"before": "It is open-source on my GitHub: ", "href": "https://github.com/HugoMichard/TrackMyAssets"}}]},
+            {"technology": "Tensorflow Keras", "stars": 5, "projects": [
+                {"title": "TrackMyAssets", "descriptions": ["TrackMyAssets allows users to track their assets accross different platforms and evaluate their investments and returns.", "Assets tracked can be of different type : stock market, cryptocurrencies, fixed value assets and staked cryptocurrencies in decentralized exchange pools or farms."], "duration": "1 year", "other": "Node.js, Express.js, MySQL, Data Scrapping, Data Visualization", "link": {"before": "It is open-source on my GitHub: ", "href": "https://github.com/HugoMichard/TrackMyAssets"}},
+                {"title": "TrackMyAssets", "descriptions": ["TrackMyAssets allows users to track their assets accross different platforms and evaluate their investments and returns.", "Assets tracked can be of different type : stock market, cryptocurrencies, fixed value assets and staked cryptocurrencies in decentralized exchange pools or farms."], "duration": "1 year", "other": "Node.js, Express.js, MySQL, Data Scrapping, Data Visualization", "link": {"before": "It is open-source on my GitHub: ", "href": "https://github.com/HugoMichard/TrackMyAssets"}}]
+            },
             {"technology": "Pytorch", "stars": 4, "projects": [""]},
             {"technology": "Deep Learning Modelization", "stars": 5, "projects": [""]},
             {"technology": "Machine Learning Modelization", "stars": 4, "projects": [""]},
@@ -13,20 +16,36 @@ const skills = {
         "Data Engineer": [
             {"technology": "Data Manipulation (with Numpy, Pandas, Scikit)", "stars": 4, "projects": [""]},
             {"technology": "Data Visualization (with Matplotlib, Seaborn, Streamlit)", "stars": 4, "projects": [""]},
-            {"technology": "Data Scrapping", "stars": 4, "projects": [""]}
+            {"technology": "Data Scrapping", "stars": 4, "projects": [
+                {"title": "TrackMyAssets", "descriptions": ["TrackMyAssets allows users to track their assets accross different platforms and evaluate their investments and returns.", "Assets tracked can be of different type : stock market, cryptocurrencies, fixed value assets and staked cryptocurrencies in decentralized exchange pools or farms."], "duration": "1 year", "other": "React, Node.js, Express.js, MySQL, Data Visualization", "link": {"before": "It is open-source on my GitHub: ", "href": "https://github.com/HugoMichard/TrackMyAssets"}},
+            ]}
         ]
     },
     "Software Development": {
         "Frontend": [
-            {"technology": "Pure Javascript", "stars": 4, "projects": [""]},
-            {"technology": "React", "stars": 4, "projects": [""]},
-            {"technology": "Vue", "stars": 4, "projects": [""]},
+            {"technology": "Javascript", "stars": 4, "projects": [
+                {"title": "This Portfolio Website :)", "descriptions": ["This website was built using exclusively HTML, CSS and Javascript.", "The challenge was to build this without using any frameworks, libraries or compilation. All code is ran and interpreted directly by the browser.", "How good of a portfolio website can I make using only basic blocks and animations ??"], "duration": "2 months", "other": "HTML, CSS", "link": {"before": "The code is available on my GitHub: ", "href": "https://github.com/HugoMichard/PortfolioWebsite"}},
+                {"title": "Development Pipeline Simulator", "descriptions": ["I built a simulator for ticket handling. The model of this simulation has multiple developers implementing the tickets, setting up environnements and finding issues in QA before fixing them.", "The goal is to obtain the best possible parameters for the number of environnements and QA pipelines depending on the number of developers.", "A Jira board is displayed live during the simulation with the state of the tickets and the work done by the developers."], "duration": "1 month", "other": "HTML, CSS, Webpack"},
+                {"title": "Random Dice Simulator", "descriptions": ["I created a random dice simulation. Hundreds of thousands of dices are rolled iteratively and the user can test different betting strategy and study their outcomes on this huge pool of rolls.", "An interface allows the user to configure the experiment and define a betting strategy.", "For example, he can decide to double down every time he loses, or to stop betting once he reaches a certain threshold. The roll simulation is then ran instantly and the results are shown for further analysis."], "duration": "1 month", "other": "HTML, CSS, Webpack", "link": {"before": "The project interface is similar to DuckDice but the simulation I made has less restrictions:", "href": "https://duckdice.io/dice?mode=auto&gameMode=demo"}}
+            ]},
+            {"technology": "React", "stars": 4, "projects": [
+                {"title": "TrackMyAssets", "descriptions": ["TrackMyAssets allows users to track their assets accross different platforms and evaluate their investments and returns.", "Assets tracked can be of different type : stock market, cryptocurrencies, fixed value assets and staked cryptocurrencies in decentralized exchange pools or farms."], "duration": "1 year", "other": "Node.js, Express.js, MySQL, Data Scrapping, Data Visualization", "link": {"before": "It is open-source on my GitHub: ", "href": "https://github.com/HugoMichard/TrackMyAssets"}},
+            ]},
+            {"technology": "Vue", "stars": 4, "projects": [
+                {"title": "Parrot", "descriptions": ["Parrot is an anomaly detection module on Relational Databases. An interface allows users to setup their configurations such as their database credentials, their prefered alert methods (slack or email) and parameters defining abnormality in their data. When abnormal data is received in their databases, an alert is sent so they may detect it and fix it quickly !"], "duration": "5 months", "other": "Django"},
+            ]},
         ],
         "Backend": [
-            {"technology": "Node.js / Express.js", "stars": 4, "projects": [""]},
-            {"technology": "Django", "stars": 4, "projects": [""]},
-            {"technology": "Laravel", "stars": 4, "projects": [""]},
-            {"technology": "SQL (with MySQL, PostgreSQL)", "stars": 4, "projects": [""]}
+            {"technology": "Node.js Express.js", "stars": 4, "projects": [
+                {"title": "TrackMyAssets", "descriptions": ["TrackMyAssets allows users to track their assets accross different platforms and evaluate their investments and returns.", "Assets tracked can be of different type : stock market, cryptocurrencies, fixed value assets and staked cryptocurrencies in decentralized exchange pools or farms."], "duration": "1 year", "other": "React, MySQL, Data Scrapping, Data Visualization", "link": {"before": "It is open-source on my GitHub: ", "href": "https://github.com/HugoMichard/TrackMyAssets"}}
+            ]},
+            {"technology": "Django", "stars": 4, "projects": [
+                {"title": "Parrot", "descriptions": ["Parrot is an anomaly detection module on Relational Databases. An interface allows users to setup their configurations such as their database credentials, their prefered alert methods (slack or email) and parameters defining abnormality in their data.", "When abnormal data is received in their databases, an alert is sent so they may detect it and fix it quickly !"], "duration": "5 months", "other": "Vue"},
+            ]},
+            {"technology": "Laravel", "stars": 4, "projects": []},
+            {"technology": "SQL (with MySQL, PostgreSQL)", "stars": 4, "projects": [
+                {"title": "TrackMyAssets", "descriptions": ["TrackMyAssets allows users to track their assets accross different platforms and evaluate their investments and returns.", "Assets tracked can be of different type : stock market, cryptocurrencies, fixed value assets and staked cryptocurrencies in decentralized exchange pools or farms."], "duration": "1 year", "other": "React, Node.js, Express.js, Data Scrapping, Data Visualization", "link": {"before": "It is open-source on my GitHub: ", "href": "https://github.com/HugoMichard/TrackMyAssets"}},
+            ]}
         ]
     }
 }
