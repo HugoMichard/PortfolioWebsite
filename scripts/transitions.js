@@ -12,12 +12,13 @@ const skillsSection = document.getElementById("skills-section")
 
 function getTransitionData(transition_type) {
     const bodyHeight = document.getElementById("body").offsetHeight
+    const bodyWidth = document.getElementById("body").offsetWidth
     const animations = {
         split_diamond: {animation: [{transform: 'rotate(45deg) scale(0)'}, {transform: `rotate(45deg) scale(${(bodyHeight / 100) - 1})`}, {transform: 'rotate(45deg) scale(0)'}], duration: 1000},
         split_diagonal: {animation: [{transform: 'rotate(45deg) scale(0)'}, {transform: `rotate(45deg) scale(${(bodyHeight / 100)})`}, {transform: 'rotate(45deg) scale(0)'}], duration: 1000},
         split_horizontal: {animation: [{transform: 'scaleY(0)'}, {transform: `scaleY(${(bodyHeight / 100) - 1})`}, {transform: 'scaleY(0)'}], duration: 800},
-        wipe_right: {animation: [], duration: 800},
-        wipe_left: {animation: [], duration: 800}
+        wipe_right: {animation: [{transform: 'scaleX(0)'}, {transform: `scaleX(-${(bodyWidth / 100) - 1})`}, {transform: 'scaleX(0)'}], duration: 800},
+        wipe_left: {animation: [{transform: 'scaleX(0)'}, {transform: `scaleX(${(bodyWidth / 100) - 1})`}, {transform: 'scaleX(0)'}], duration: 800}
     }
     return animations[transition_type]
 }

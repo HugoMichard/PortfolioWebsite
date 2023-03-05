@@ -19,28 +19,28 @@ body .easytransitions_transition__part-1 {
   left: -100px;
   top: -100px;
 }
-body .easytransitions_transition__part-1.split_diagonal_alt, body .easytransitions_transition__part-1.split_vertical, body .easytransitions_transition__part-1.split_horizontal {
+body .easytransitions_transition__part-1.split_diagonal_alt, body .easytransitions_transition__part-1.split_vertical, body .easytransitions_transition__part-1.split_horizontal, body .easytransitions_transition__part-1.wipe_right {
   display: none;
 }
 body .easytransitions_transition__part-2 {
   bottom: -100px;
   left: -100px;
 }
-body .easytransitions_transition__part-2.split_diagonal, body .easytransitions_transition__part-2.split_vertical, body .easytransitions_transition__part-2.split_horizontal {
+body .easytransitions_transition__part-2.split_diagonal, body .easytransitions_transition__part-2.split_vertical, body .easytransitions_transition__part-2.split_horizontal, body .easytransitions_transition__part-2.wipe_right {
   display: none;
 }
 body .easytransitions_transition__part-3 {
   top: -100px;
   right: -100px;
 }
-body .easytransitions_transition__part-3.split_diagonal, body .easytransitions_transition__part-3.split_vertical, body .easytransitions_transition__part-3.split_horizontal {
+body .easytransitions_transition__part-3.split_diagonal, body .easytransitions_transition__part-3.split_vertical, body .easytransitions_transition__part-3.split_horizontal, body .easytransitions_transition__part-3.wipe_left {
   display: none;
 }
 body .easytransitions_transition__part-4 {
   bottom: -100px;
   right: -100px;
 }
-body .easytransitions_transition__part-4.split_diagonal_alt, body .easytransitions_transition__part-4.split_vertical, body .easytransitions_transition__part-4.split_horizontal {
+body .easytransitions_transition__part-4.split_diagonal_alt, body .easytransitions_transition__part-4.split_vertical, body .easytransitions_transition__part-4.split_horizontal, body .easytransitions_transition__part-4.wipe_left {
   display: none;
 }
 body .easytransitions_transition__part-5 {
@@ -48,8 +48,6 @@ body .easytransitions_transition__part-5 {
   display: none;
   left: 0px;
   transform-origin: 0px 200px;
-  -webkit-animation: vertical 1.2s forwards;
-          animation: vertical 1.2s forwards;
 }
 body .easytransitions_transition__part-5.split_vertical, body .easytransitions_transition__part-5.wipe_left {
   display: block;
@@ -59,8 +57,6 @@ body .easytransitions_transition__part-6 {
   display: none;
   right: -200px;
   transform-origin: 0px 200px;
-  -webkit-animation: vertical_r 1.2s forwards;
-          animation: vertical_r 1.2s forwards;
 }
 body .easytransitions_transition__part-6.split_vertical, body .easytransitions_transition__part-6.wipe_right {
   display: block;
@@ -81,88 +77,10 @@ body .easytransitions_transition__part-8 {
 body .easytransitions_transition__part-8.split_horizontal, body .easytransitions_transition__part-8.wipe_top {
   display: block;
 }
-@-webkit-keyframes vertical {
-  0% {
-    transform: scaleX(0);
-  }
-  50% {
-    transform: scaleX(10);
-  }
-  100% {
-    transform: scaleX(0);
-  }
-}
-@keyframes vertical {
-  0% {
-    transform: scaleX(0);
-  }
-  50% {
-    transform: scaleX(10);
-  }
-  100% {
-    transform: scaleX(0);
-  }
-}
-@-webkit-keyframes vertical_r {
-  0% {
-    transform: scaleX(0);
-  }
-  50% {
-    transform: scaleX(-10);
-  }
-  100% {
-    transform: scaleX(0);
-  }
-}
-@keyframes vertical_r {
-  0% {
-    transform: scaleX(0);
-  }
-  50% {
-    transform: scaleX(-10);
-  }
-  100% {
-    transform: scaleX(0);
-  }
-}
-@-webkit-keyframes horizontal {
-  0% {
-    transform: scaleY(0);
-  }
-  50% {
-    transform: scaleY(10);
-  }
-  100% {
-    transform: scaleY(0);
-  }
-}
-@keyframes horizontal {
-  0% {
-    transform: scaleY(0);
-  }
-  50% {
-    transform: scaleY(10);
-  }
-  100% {
-    transform: scaleY(0);
-  }
-}
 body .easytransitions .active_slide {
   display: block;
 }
 body .easytransitions section {
   height: 100vh;
   display: none;
-}
-body .easytransitions section .center {
-  position: absolute;
-  left: 0;
-  margin: auto;
-  width: 600px;
-  font-family: "nunito";
-  right: 0;
-  text-align: center;
-  color: white;
-  top: 50%;
-  transform: translateY(-50%);
 }

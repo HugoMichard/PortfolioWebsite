@@ -842,21 +842,7 @@ dl.infos dd span:after {
   transition-delay: 0s; }
 
 .pos {
-  transition-delay: 1s; }
-
-h1, #data, #controls {
-  transition-property: opacity, margin;
-  transition-duration: .8s;
-  transition-timing-function: ease-in-out; }
-
-h1 {
-  transition-delay: .35s; }
-
-#data {
-  transition-delay: .7s; }
-
-#controls {
-  transition-delay: 1s; }
+  transition-delay: 1s; } 
 
 /* --------------------------------------------------------------------------- images */
 .skills-container {background: url("../images/skills/universe.png");}
