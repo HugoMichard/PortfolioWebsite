@@ -75,7 +75,6 @@
     position: fixed;
     top:0%;
     background-color: rgba(1, 1, 1, 0.8);
-    text-align: center;
 }
 
 .details > * {
@@ -83,29 +82,22 @@
     margin-right: 7%;
 }
 
-.details > h1 {
+.details > div > h1 {
     font-size: 60px;
     top: 10%;
+    margin-bottom: 0;
     position: relative;
     text-align: justify;
 }
 
 .details > div > h2 {
     font-size: 20px;
-    float: left;
     margin-right: 10%;
-    top: 8%;
-    position: relative;
-}
-
-.details > div > h2:nth-of-type(2) {
-    float: right
 }
 
 .details > div {
     position: relative;
     top: 7%;
-    width: 100%;
 }
 
 .details > p {
@@ -119,8 +111,11 @@
 }
 
 .details > ul {
-    top: 10%;
     position: relative;
     text-align: left;
     display: inline-block;
+}
+
+.details .company-logo {
+    height: 10%;
 }

@@ -3,7 +3,8 @@ const data = {
         {
             "img": "images/experience/ceabomb.jpg",
             "company": "CEA",
-            "title": "Software Engineer Intern at the CEA",
+            "logo": "images/experience/logo-cea.png",
+            "title": "Software Engineer Intern",
             "time": "September 2016 - December 2016",
             "description": "The CEA manages the French Nuclear Defense. I created in this highly secure environment a full package of testing tools with javascript",
             "achievements": [
@@ -16,7 +17,8 @@ const data = {
         {
             "img": "images/experience/memo.jpg",
             "company": "MemoRecords",
-            "title": "Full-stack Developer Intern at MemoRecords",
+            "logo": "images/experience/logo-memo.jpg",
+            "title": "Full-stack Developer Intern",
             "time": "January 2018 - July 2018",
             "description": "Memorecords is a french audiovisual start-up creating a new type of videobooth for large companies. I did a 6-month internship in this company",
             "achievements": [
@@ -29,7 +31,8 @@ const data = {
         {
             "img": "images/experience/telecom.png",
             "company": "Telecom SudParis",
-            "title": "Deep Learning Research Intern at Telecom SudParis",
+            "logo": "images/experience/logo-tsp.jpg",
+            "title": "Deep Learning Research Intern",
             "time": "March 2019 - April 2019",
             "description": "One-month research project on emotion recognition from videos for the european project Empatic",
             "achievements": [
@@ -41,7 +44,8 @@ const data = {
         {
             "img": "images/experience/recruit.jpg",
             "company": "Recruit Communications",
-            "title": "Machine Learning Engineer Intern at Recruit Communications",
+            "logo": "images/experience/logo-recruit.jpeg",
+            "title": "Machine Learning Engineer Intern",
             "time": "May 2019 - September 2019",
             "description": "Recruit Communications is a Japanese web marketing company building recruiting solutions for large companies. I went to Japan and developed a machine learning model generation software. I also worked on a Demand-Side Platform (real-time advertisement bidding)",
             "achievements": [
@@ -53,7 +57,8 @@ const data = {
         {
             "img": "images/experience/klee.jpg",
             "company": "KLEE Group",
-            "title": "Software Engineer at KLEE Group",
+            "logo": "images/experience/logo-klee.png",
+            "title": "Software Engineer",
             "time": "January 2020 - August 2020",
             "description": "Klee Group is a consulting company developing digital solutions. I worked for the DGAC (French Civil Aviation Authority) as a software engineer consultant on different projects to manage airport fees, airport accesses and drone declarations",
             "achievements": [
@@ -65,7 +70,8 @@ const data = {
         {
             "img": "images/experience/cea2.jpeg",
             "company": "CEA",
-            "title": "Computer Vision Research Engineer at CEA",
+            "logo": "images/experience/logo-cea.png",
+            "title": "Computer Vision Research Engineer",
             "time": "September 2020 - November 2021",
             "description": "In a partnership with INSEP (French National Sports Institut), I worked on the research and development of computer vision solutions for high-level athletes",
             "achievements": [
@@ -78,7 +84,8 @@ const data = {
         {
             "img": "images/experience/harfanglab.jpg",
             "company": "HarfangLab",
-            "title": "Artificial Intelligence Engineer at HarfangLab",
+            "logo": "images/experience/logo-harfanglab.jpg",
+            "title": "Artificial Intelligence Engineer",
             "time": "November 2021 - Present",
             "description": "",
             "achievements": [],
@@ -89,6 +96,7 @@ const data = {
         {
             "img": "images/education/isep.jpg",
             "company": "ISEP",
+            "logo": "images/education/logo-isep.png",
             "title": "Engineering Diploma in Computer Science",
             "time": "September 2015 - September 2018",
             "description": "Isep is ranked number 2 French engineering school in digital technologies according to the Usine Digital of 2016. I majored in software development and specialized in cybersecurity and Big Data",
@@ -98,7 +106,8 @@ const data = {
         {
             "img": "images/education/inha.jpg",
             "company": "INHA",
-            "title": "Exchange student in Computer Science at INHA University",
+            "logo": "images/education/logo-inha.png",
+            "title": "Exchange student in Computer Science",
             "time": "August 2017 - December 2017",
             "description": "I spent 6 months as an exchange student in South Korea studying computer science in INHA",
             "achievements": ["Majored in Software Development", "Specialized in Database Design"],
@@ -107,7 +116,8 @@ const data = {
         {
             "img": "images/education/tried.jpg",
             "company": "TRIED",
-            "title": "Specialized Master Degree in Machine Learning and Deep Learning at Paris-Saclay University",
+            "logo": "images/education/logo-parissaclay.png",
+            "title": "Specialized Master Degree in Machine Learning and Deep Learning",
             "time": "September 2018 - September 2019",
             "description": "TRIED (Information Processing and Data Exploitation) is a machine learning specialized master. I studied in this master with the research programme",
             "achievements": ["Majored in Data Science", "Specialized in Deep Learning", "Worked as a research intern in a lab"],
@@ -163,13 +173,19 @@ function generateShortTitle(node, d) {
 function generateDetails(node, d) {
     const details = document.createElement("div")
     details.classList.add("details")
+    const detailsHeader = document.createElement("div")
     const title = document.createElement("h1")
     title.textContent = d.title
-    const companyLine = document.createElement("div")
-    const company = document.createElement("h2")
-    company.textContent = d.company
+    detailsHeader.appendChild(title)
+
+    const companyLogo = document.createElement("img")
+    companyLogo.src = d.logo
+    companyLogo.classList.add("company-logo")
+
     const date = document.createElement("h2")
     date.textContent = d.time
+    detailsHeader.appendChild(companyLogo)
+    detailsHeader.appendChild(date)
     const description = document.createElement("p")
     description.textContent = d.description
     const achievements = document.createElement("ul")
@@ -186,10 +202,7 @@ function generateDetails(node, d) {
         skill.textContent = s
         skills.appendChild(skill)
     }
-    details.appendChild(title)
-    companyLine.appendChild(company)
-    companyLine.appendChild(date)
-    details.appendChild(companyLine)
+    details.appendChild(detailsHeader)
     details.appendChild(description)
     details.appendChild(achievements)
     details.appendChild(document.createElement("h2"))
