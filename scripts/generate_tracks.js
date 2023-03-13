@@ -20,7 +20,7 @@ const data = {
             "logo": "images/experience/logo-memo.jpg",
             "title": "Full-stack Developer Intern",
             "time": "January 2018 - July 2018",
-            "description": "Memorecords is a french audiovisual start-up creating a new type of videobooth for large companies. I did a 6-month internship in this company",
+            "description": "MemoRecords is a french audiovisual start-up creating a new type of videobooth for large companies. I did a 6-month internship in this company",
             "achievements": [
                 "Achieved an autonomous recording and streaming videobooth",
                 "Full-stack development of the management software"
@@ -89,7 +89,7 @@ const data = {
             "time": "November 2021 - Present",
             "description": "",
             "achievements": [],
-            "skills": ["Deep Learning", "Computer Vision", "Keras / Tensorflow", "Python"]
+            "skills": ["Machine Learning", "Deep Learning", "Computer Vision", "Tensorflow", "Python", "MLOps"]
         },
     ],
     "education": [
