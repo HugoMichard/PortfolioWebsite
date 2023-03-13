@@ -928,7 +928,8 @@ dl.infos dd span:after {
 
 .planet-card p {
   font-size: 20px;
-  margin-bottom: 50px;
+  margin-bottom: 5px;
+  text-align: left;
 }
 
 .planet-card p a {
