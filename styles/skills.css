@@ -288,8 +288,23 @@
 }
 
 .planet1-skin {
-  --ring-color: rgba(2, 60, 167, 0.7);
+  --ring-color: rgba(83, 90, 104, 0.7);
   --inner-ring-color: rgba(2, 60, 167, 0.5);
+}
+
+.planet2-skin {
+  --ring-color: rgba(0, 90, 63, 0.7);
+  --inner-ring-color: rgb(99, 122, 95, 0.5);
+}
+
+.planet3-skin {
+  --ring-color: #ff730087;
+  --inner-ring-color: rgb(108 117 134 / 50%);
+}
+
+.planet4-skin {
+  --ring-color: #ff0000a6;
+  --inner-ring-color: #fffb008a;
 }
 
 .mercury-skin {
@@ -844,6 +859,9 @@ dl.infos dd span:after {
 .uranus-skin .planet {background-image: url("../images/skills/uranus.png");}
 .neptune-skin .planet {background-image: url("../images/skills/neptune.png");}
 .planet1-skin .planet {background-image: url("../images/skills/planet1.png");}
+.planet2-skin .planet {background-image: url("../images/skills/planet2.png");}
+.planet3-skin .planet {background-image: url("../images/skills/planet3.png");}
+.planet4-skin .planet {background-image: url("../images/skills/planet4.png");}
 
 .moon {
   pointer-events: none;
