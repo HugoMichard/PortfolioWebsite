@@ -74,7 +74,8 @@ const universe = document.getElementsByClassName("universe")[0]
 const navigationTitle = document.getElementById("skill-navigation-title")
 const navigationBackButton = document.getElementById("skill-navigation-back")
 navigationTitle.textContent = "Click on a Galaxy to explore"
-const planetTypes = ['earth', 'mercury', 'uranus', 'venus', 'mars', 'neptune', 'jupiter']
+const planetSkins = ['earth', 'mercury', 'uranus', 'venus', 'mars', 'neptune', 'jupiter', 'planet1']
+const planetPositions = ['earth', 'mercury', 'uranus', 'venus', 'mars', 'neptune', 'jupiter']
 const moonTypes = ['type-1', 'type-2', 'type-3']
 const moonFrequency = 20;
 const ringFrequency = 20;
@@ -183,7 +184,9 @@ function createPlanetCards(planetData) {
 }
 
 function generatePlanet(solarSystem, planetData, distanceToCenter) {
-    const planetType = planetTypes[getRandomIntegerBetweenMinAndMax(0, planetTypes.length - 1)]
+    const planetSkin = planetSkins[getRandomIntegerBetweenMinAndMax(0, planetSkins.length - 1)]
+    const planetPosition = planetPositions[getRandomIntegerBetweenMinAndMax(0, planetPositions.length - 1)]
+
     const planetSize = getRandomFloatBetweenMinAndMax(1, 8);
 
     const hasMoon = getRandomIntegerBetweenMinAndMax(0, 100) <= moonFrequency;
@@ -195,7 +198,8 @@ function generatePlanet(solarSystem, planetData, distanceToCenter) {
     const orbitSize = getRandomFloatBetweenMinAndMax(totalDistanceToCenter, totalDistanceToCenter + 3);
 
     const planetContainer = document.createElement("div")
-    planetContainer.classList.add(planetType)
+    planetContainer.classList.add(planetPosition)
+    planetContainer.classList.add(planetSkin + '-skin')
     planetContainer.classList.add("orbit")
     planetContainer.classList.add("planet-container")
     planetContainer.style.setProperty("--animation-duration", 10* orbitSize / 5 + "s")

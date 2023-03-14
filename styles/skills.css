@@ -280,78 +280,49 @@
 .view-3D .moon {
   transform: rotateX(0deg); }
 
-/* --------------------------------------------------------------------------- data */
-/* --------------------------------------------------------------------------- speed */
-/* sideral years */
+/* Ring */
 
-.earth {
-    --animation-duration: 12.00021s;
-    --orbit-size: 56em;
-    --orbit-margin: -28em;
-    --planet-size: 50px;
+.earth-skin {
     --ring-color: rgba(2, 60, 167, 0.7);
     --inner-ring-color: rgba(2, 60, 167, 0.5);
 }
 
-.mercury {
-    --animation-duration: 2.89016s;
-    --orbit-size: 32em;
-    --orbit-margin: -16em;
-    --planet-size: 1.5em;
+.planet1-skin {
+  --ring-color: rgba(2, 60, 167, 0.7);
+  --inner-ring-color: rgba(2, 60, 167, 0.5);
+}
+
+.mercury-skin {
     --ring-color: rgba(231,232,236, 0.7);
     --inner-ring-color: rgba(231,232,236, 0.5);
 }
 
-.venus {
-    --animation-duration: 7.38237s;
-    --orbit-size: 40em;
-    --orbit-margin: -20em;
-    --planet-size: 3.72em;
+.venus-skin {
     --ring-color: rgba(248,226,176, 0.7);
     --inner-ring-color: rgba(248,226,176, 0.5);
 }
 
-.mars {
-    --animation-duration: 22.57017s;
-    --orbit-size: 72em;
-    --orbit-margin: -36em;
-    --planet-size: 2.9em;
+.mars-skin {
     --ring-color: rgba(193,68,14, 0.7);
     --inner-ring-color: rgba(193,68,14, 0.5);
 }
 
-.jupiter {
-    --animation-duration: 142.35138s;
-    --orbit-size: 100em;
-    --orbit-margin: -50em;
-    --planet-size: 12em;
+.jupiter-skin {
     --ring-color: rgba(227,220,203, 0.7);
     --inner-ring-color: rgba(227,220,203, 0.5);
 }
 
-.saturn {
-    --animation-duration: 353.36998s;
-    --orbit-size: 150em;
-    --orbit-margin: -75em;
-    --planet-size: 10.8em;
+.saturn-skin {
     --ring-color: rgba(160, 147, 130, 0.7);
     --inner-ring-color: rgba(160, 147, 130, 0.5);
 }
 
-.uranus {
-    --animation-duration: 1008.20215s;
-    --orbit-size: 186em;
-    --orbit-margin: -93em;
-    --planet-size: 4.68em;
+.uranus-skin {
     --ring-color: rgba(198,211,227, 0.7);
     --inner-ring-color: rgba(198,211,227, 0.5);
 }
 
-.neptune {
-    --animation-duration: 1977.49584s;
-    --orbit-size: 210em;
-    --orbit-margin: -105em;
-    --planet-size: 4.9em;
+.neptune-skin {
     --ring-color: rgba(133,173,219, 0.7);
     --inner-ring-color: rgba(133,173,219, 0.5);
 }
@@ -815,14 +786,14 @@ dl.infos dd span:after {
   transform: rotateX(0deg); 
 }
 
-.mercury .mercury.orbit,
-.venus .venus.orbit,
-.earth .earth.orbit,
-.mars .mars.orbit,
-.jupiter .jupiter.orbit,
-.saturn .saturn.orbit,
-.uranus .uranus.orbit,
-.neptune .neptune.orbit {
+.planet-container .planet-container.orbit,
+.planet-container .planet-container.orbit,
+.planet-container .planet-container.orbit,
+.planet-container .planet-container.orbit,
+.planet-container .planet-container.orbit,
+.planet-container .planet-container.orbit,
+.planet-container .planet-container.orbit,
+.planet-container .planet-container.orbit {
   border: 1px solid rgba(255, 255, 255, 0.8); }
 
 
@@ -864,14 +835,15 @@ dl.infos dd span:after {
 /* --------------------------------------------------------------------------- images */
 .skills-container {background: url("../images/skills/universe.png");}
 .sun {background-image: url("../images/skills/sun.png");}
-.mercury .planet {background-image: url("../images/skills/mercury.png");}
-.venus .planet {background-image: url("../images/skills/venus.png");}
-.earth .planet {background-image: url("../images/skills/earth.png");}
-.mars .planet {background-image: url("../images/skills/mars.png");}
-.jupiter .planet {background-image: url("../images/skills/jupiter.png");}
-.saturn .planet {background-image: url("../images/skills/saturn.png");}
-.uranus .planet {background-image: url("../images/skills/uranus.png");}
-.neptune .planet {background-image: url("../images/skills/neptune.png");}
+.mercury-skin .planet {background-image: url("../images/skills/mercury.png");}
+.venus-skin .planet {background-image: url("../images/skills/venus.png");}
+.earth-skin .planet {background-image: url("../images/skills/earth.png");}
+.mars-skin .planet {background-image: url("../images/skills/mars.png");}
+.jupiter-skin .planet {background-image: url("../images/skills/jupiter.png");}
+.saturn-skin .planet {background-image: url("../images/skills/saturn.png");}
+.uranus-skin .planet {background-image: url("../images/skills/uranus.png");}
+.neptune-skin .planet {background-image: url("../images/skills/neptune.png");}
+.planet1-skin .planet {background-image: url("../images/skills/planet1.png");}
 
 .moon {
   pointer-events: none;
@@ -887,7 +859,7 @@ dl.infos dd span:after {
   background-image: url("../images/skills/moon2.png");
 }
 
-.moon-type-2 {
+.moon-type-3 {
   background-image: url("../images/skills/moon3.png");
 }
 
