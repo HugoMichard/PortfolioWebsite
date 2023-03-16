@@ -192,3 +192,13 @@
   50% { background-position: 400% 0; }
   100% { background-position: 0 0; }
 }
+
+/* Block access to mobile devices */
+#block-mobile {
+  z-index: 1000000;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  position: absolute;
+  text-align: center;
+}

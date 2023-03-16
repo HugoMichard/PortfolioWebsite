@@ -26,3 +26,14 @@ setTimeout(addShootingStar, getRandomFloatBetweenMinAndMax(3000, 5000))
 
 /* Download Resume */
 document.getElementById('download-button').addEventListener("click", function() {document.getElementById('download').click()})
+
+/* Block access to mobile devices */
+function blockMobile() {
+    if (window.innerHeight < 800 || window.innerWidth < 800) {
+        document.getElementById('block-mobile').classList.remove('hidden')
+    } else {
+        document.getElementById('block-mobile').classList.add('hidden')
+    }
+}
+window.addEventListener('resize', blockMobile);
+blockMobile()

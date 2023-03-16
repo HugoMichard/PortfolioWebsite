@@ -411,7 +411,7 @@ function navigateToPlanet(solarSystem, planetContainer, planetData) {
         navigateOutOfPlanet();
         return;
     }
-    console.log("NAVIGATING TO PLANET")
+
     // Zoom into planet and drag solar system up
     visitingPlanetOrbitSize = planetContainer.style.getPropertyValue("--orbit-size").slice(0,-2);
     planetContainer.style.setProperty("--orbit-size", "0em")
@@ -439,7 +439,6 @@ function navigateToPlanet(solarSystem, planetContainer, planetData) {
 }
 
 function navigateOutOfPlanet() {
-    console.log("NAVIGATING OUT OF PLANET")
     const cards = document.getElementsByClassName("planet-cards")[0]
     const planet = onPlanet.getElementsByClassName("planet")[0]
     const moon = onPlanet.getElementsByClassName("moon");
@@ -465,7 +464,6 @@ function navigateOutOfPlanet() {
 
 function navigateToSystem(solarSystem) {
     if (navigationRegion != "galaxy") return;
-    console.log("NAVIGATING TO System")
 
     for(const system of onGalaxy.getElementsByClassName("solar-system")) {
         system.classList.remove("clickable")
@@ -492,7 +490,6 @@ function navigateToSystem(solarSystem) {
 
 function navigateOutOfSystem() {
     if (navigationRegion != "system") return;
-    console.log("NAVIGATING OUT OF System")
 
     onSolarSystem.classList.remove("selected-solar-system")
 
@@ -517,7 +514,7 @@ function navigateOutOfSystem() {
 
 function navigateToGalaxy(galaxyName) {
     if (navigationRegion != "universe") return;
-    console.log("NAVIGATING TO Galaxy")
+
     const galaxy = document.getElementById("galaxy-" + galaxyName)
     removeGalaxyBackgrounds()
 
@@ -535,7 +532,7 @@ function navigateToGalaxy(galaxyName) {
 
 function navigateOutOfGalaxy() {
     if (navigationRegion != "galaxy") return;
-    console.log("NAVIGATING OUT OF Galaxy")
+
     const galaxyName = onGalaxy.id.replace('galaxy-', '')
     
     onGalaxy.animate(animations.exitGalaxy.animation[galaxyName], {duration: animations.exitGalaxy.duration, iterations: 1})
