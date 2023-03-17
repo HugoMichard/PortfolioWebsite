@@ -29,7 +29,7 @@
     width: 50px;
     position: absolute;
     top: 10px;
-    right: 30px;
+    right: 10px;
     user-select: none;
     animation: zoom-in-zoom-out 4s ease infinite;
   }
