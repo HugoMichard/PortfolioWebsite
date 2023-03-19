@@ -30,6 +30,7 @@ const skills = {
 
             ]},
             {"technology": "Data Scrapping", "stars": 4, "projects": [
+                {"title": "Windows Desktop Scrapper", "descriptions": ["I created a Windows Desktop app that scrappes data from different APIs before aggregating the results into a csv that the user can download.", "The user also has access to a complete configuration panel to enter parameters for the scrapping (API keys, scrapping limits, objects to scrape ...)"], "duration": "1 month", "other": "Python, PyQt"},
                 {"title": "TrackMyAssets", "descriptions": ["TrackMyAssets allows users to track their assets accross different platforms and evaluate their investments and returns.", "Assets tracked can be of different type : stock market, cryptocurrencies, fixed value assets and staked cryptocurrencies in decentralized exchange pools or farms."], "duration": "1 year", "other": "React, Node.js, Express.js, MySQL, Data Visualization", "link": {"before": "It is open-source on my GitHub: ", "href": "https://github.com/HugoMichard/TrackMyAssets"}},
             ]}
         ]
