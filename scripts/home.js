@@ -29,7 +29,7 @@ document.getElementById('download-button').addEventListener("click", function() 
 
 /* Block access to mobile devices */
 function blockMobile() {
-    if (window.innerHeight < 800 || window.innerWidth < 800) {
+    if (window.innerHeight < 500 || window.innerWidth < 800) {
         document.getElementById('block-mobile').classList.remove('hidden')
     } else {
         document.getElementById('block-mobile').classList.add('hidden')
