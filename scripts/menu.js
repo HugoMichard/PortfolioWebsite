@@ -4,6 +4,7 @@ const pages = ['work', 'education']
 var currPage = pages[0]
 const movable = document.getElementsByClassName('scrollable')
 const categoryTitles = document.getElementsByClassName('category')
+const navLinks = document.getElementById('nav-links')
 const marginTop = 200
 const marginLeft = 200
 
@@ -29,15 +30,27 @@ const resetDragTutorialTimeout = () => {
 /**
  * Toggle the nav menu
  */
+
 const toggleNav = () => {
   document.body.dataset.nav =
     document.body.dataset.nav === 'true' ? 'false' : 'true'
   if(document.body.dataset.nav === "true") {
+    // Swipe downwards the black mask
+    for(let section of document.querySelectorAll('body[data-nav="true"] > .easytransitions > #track-section > .track-container, body[data-nav="true"] > .easytransitions > section > div')) {
+      section.style.transform = `translateY(${navLinks.offsetHeight + navLinks.offsetTop}px)`
+    }
+
+    // Hide drag tutorial
     if(!document.getElementById("drag-tutorial").classList.contains("hidden-drag-tutorial")) {
       document.getElementById("drag-tutorial").classList.add("hidden-drag-tutorial")
     }
     clearTimeout(displayTutorialTimeout)
   } else {
+    // Swipe back to origin position the black mask
+    for(let x of document.querySelectorAll('body > .easytransitions > #track-section > .track-container, body > .easytransitions > section > div')) {
+      x.style.transform = `translateY(0px)`
+    }
+
     resetDragTutorialTimeout()
   }
 }

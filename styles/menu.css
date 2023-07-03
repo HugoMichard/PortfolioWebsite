@@ -27,10 +27,6 @@ body {
     transition: transform 500ms cubic-bezier(.13,.53,.38,.97);
 }
 
-body[data-nav="true"] > .easytransitions > #track-section > .track-container, body[data-nav="true"] > .easytransitions > section > div {
-    transform: translateY(40%);
-}
-
 .hidden-track {
     display: none !important;
 }
@@ -40,7 +36,7 @@ body[data-nav="true"] > .easytransitions > #track-section > .track-container, bo
 }
 
 nav {
-    height: 50vh;
+    height: 100%;
     width: 100%;
     position: absolute;
     left: 0px;
