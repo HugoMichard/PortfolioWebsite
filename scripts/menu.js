@@ -40,6 +40,9 @@ const toggleNav = () => {
       section.style.transform = `translateY(${navLinks.offsetHeight + navLinks.offsetTop}px)`
     }
 
+    // Make it possible to click on nav cards
+    navLinks.classList.remove('non-clickable-element');
+
     // Hide drag tutorial
     if(!document.getElementById("drag-tutorial").classList.contains("hidden-drag-tutorial")) {
       document.getElementById("drag-tutorial").classList.add("hidden-drag-tutorial")
@@ -50,6 +53,9 @@ const toggleNav = () => {
     for(let x of document.querySelectorAll('body > .easytransitions > #track-section > .track-container, body > .easytransitions > section > div')) {
       x.style.transform = `translateY(0px)`
     }
+
+    // Make it impossible to click on nav cards
+    navLinks.classList.add('non-clickable-element');
 
     resetDragTutorialTimeout()
   }

@@ -85,7 +85,7 @@ body[data-nav="true"] > nav > #nav-links {
     width: 5rem;
     position: fixed;
     z-index: 100;
-    top: 3rem;
+    top: clamp(10px, 5vh, 40px);
     border: none;
     border-radius: 5rem;
     outline: none;

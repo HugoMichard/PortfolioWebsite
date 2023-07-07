@@ -81,3 +81,8 @@ body {
 .clear-both {
   clear: both;
 }
+
+.non-clickable-element {
+  pointer-events: none;
+  user-select: none;
+}

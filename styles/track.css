@@ -4,7 +4,7 @@
     position: absolute;
     z-index: 1;
     left: 50%;
-    top: 50%;
+    top: 60%;
     transform: translate(-0%, -50%);
     user-select: none; /* -- Prevent image highlighting -- */
 }
@@ -26,7 +26,7 @@
 .image-track > div > h3 {
     color: white;
     text-align: center;
-    font-size: 17px;
+    font-size: clamp(14px, 2vh, 17px);
 }
 
 .image-track > div {
