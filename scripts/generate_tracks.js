@@ -117,7 +117,7 @@ const data = {
             "img": "images/education/tried.jpg",
             "company": "TRIED",
             "logo": "images/education/logo-parissaclay.png",
-            "title": "Specialized Master Degree in Machine Learning and Deep Learning",
+            "title": "Specialized Master Degree in AI",
             "time": "September 2018 - September 2019",
             "description": "TRIED (Information Processing and Data Exploitation) is a machine learning specialized master. I studied in this master with the research programme",
             "achievements": ["Majored in Data Science", "Specialized in Deep Learning", "Worked as a research intern in a lab"],
