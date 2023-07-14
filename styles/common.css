@@ -24,7 +24,7 @@ body {
     counter-increment: index;
     text-align: right;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: max(1.5vw, 17px);
     display: flex;
     align-items: center;
     padding: 12px 0;
@@ -61,17 +61,16 @@ body {
   position: absolute !important;
   bottom: 10%
 }
+.horizontal-list > li + li {
+  margin-left: 2vw;
+}
 .horizontal-list > li {
   display: inline-block;
-}
-.horizontal-list > li + li {
-  margin-left: 2em;
-}
-.horizontal-list > li {
   border-bottom: 1px solid;
   padding: 0.75em 1.5em;
   text-transform: uppercase;
   font-weight: bold;
+  font-size: inline-block
 }
 
 .horizontal-list {
