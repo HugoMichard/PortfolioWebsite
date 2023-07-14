@@ -196,6 +196,7 @@
   position: absolute;
   top: 20%;
   display: flex;
+  z-index: 100;
   margin-left: 80px;
   color: white;
   cursor: pointer;
