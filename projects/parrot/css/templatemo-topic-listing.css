@@ -489,8 +489,8 @@ strong {
   background-image: linear-gradient(15deg, blue 0%, #ffc85d 100%);
   position: relative;
   overflow: hidden;
-  padding-top: 150px;
-  padding-bottom: 150px;
+  padding-top: 200px;
+  padding-bottom: 200px;
 }
 
 .hero-section .input-group {
@@ -1153,3 +1153,10 @@ blockquote {
   }
 }
 
+.logo {
+  height: 50px
+}
+
+.mb-8 {
+  margin-bottom: 3rem !important;
+}
