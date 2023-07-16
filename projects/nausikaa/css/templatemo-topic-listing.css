@@ -1160,3 +1160,7 @@ blockquote {
 .mb-8 {
   margin-bottom: 3rem !important;
 }
+
+#button-submit-form {
+  border-radius: 100px;
+}

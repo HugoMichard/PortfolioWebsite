@@ -4,7 +4,6 @@ const contactBox = document.getElementById("contact-box")
 function resetForm() {
     document.getElementById("form-name").value = ""
     document.getElementById("form-email").value = ""
-    document.getElementById("form-phone").value = ""
     document.getElementById("form-message").value = ""  
 }
 
@@ -39,13 +38,12 @@ function sendForm() {
     const data = {
         name: document.getElementById("form-name").value,
         email: document.getElementById("form-email").value,
-        phone: document.getElementById("form-phone").value,
         message: document.getElementById("form-message").value,
     };
     console.log("Sending the following data:")
     console.log(data);
 
-    for(let d of ["name", "email", "phone", "message"]) {
+    for(let d of ["name", "email", "message"]) {
         if (!data[d]) {
             document.getElementById(d + "Validation").classList.remove("hidden");
             document.getElementById("form-" + d).classList.remove("margin-field");
@@ -55,7 +53,7 @@ function sendForm() {
         }
     }
 
-    if (data.email && data.message && data.phone && data.name) {
+    if (data.email && data.message && data.name) {
         sendToHeadless(data)
     }
 }
