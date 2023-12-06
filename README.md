@@ -27,3 +27,11 @@ Deployment and hosting of my portfolio website is done with github pages. Hence,
 
 Deployment and hosting of the static project websites is done with the same github pages. Hence, each of these personal project websites are accessible at:
 - Nausikaa: https://hugomichard.github.io/PortfolioWebsite/projects/nausikaa/index
+
+### Other Personal Projects Websites
+
+Deployment and hosting of the static project websites is done with other github repos. These personal project websites are accessible at:
+| Name | Repo | Pages |
+| -------- | ------- | -------- |
+| WebsiteGPT  | [link](https://github.com/HugoMichard/PortfolioWebsiteGPT) | [link](https://hugomichard.github.io/PortfolioWebsiteGPT) | 
+
