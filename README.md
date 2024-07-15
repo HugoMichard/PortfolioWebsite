@@ -34,4 +34,4 @@ Deployment and hosting of the static project websites is done with other github 
 | Name | Repo | Pages |
 | -------- | ------- | -------- |
 | WebsiteGPT  | [link](https://github.com/HugoMichard/PortfolioWebsiteGPT) | [link](https://hugomichard.github.io/PortfolioWebsiteGPT) | 
-
+| KoalAPI | [link](https://github.com/HugoMichard/PortfolioKoalapi) | [link](https://hugomichard.github.io/PortfolioKoalapi) | 
